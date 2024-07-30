@@ -1,0 +1,78 @@
+<ngx-loading
+  [show]="loading"
+  [config]="{
+    animationType: ngxLoadingAnimationTypes.circle,
+    primaryColour: primaryColour,
+    secondaryColour: secondaryColour,
+    backdropBorderRadius: '5px',
+  }"
+>
+</ngx-loading>
+
+<div class="create-dialog-box scrollable-dialog">
+  <div class="title d-flex align-items-center justify-content-space-between">
+    <h4 class="mb-0">
+      {{
+       
+         ("FormCategory.TITLE_MODAL.UPDATE" | translate)
+      }}
+    </h4>
+    <button
+      class="close-btn bg-transparent p-0 border-none"
+      (click)="closeModal()"
+    >
+      <i class="flaticon-close"></i>
+    </button>
+  </div>
+  <form [formGroup]="form" *ngIf="form">
+    <div class="row">
+      <div *ngFor="let input of formInputs" class="col-md-{{ input?.column }}">
+        <div class="form-group">
+          <label for="{{ input?.name }}">
+            <strong>{{ input?.label | translate }}</strong>
+            <span *ngIf="input?.required" class="text-danger">*</span>
+          </label>
+          <br />
+          <ng-container *ngIf="input.type === 'select'">
+            <p-dropdown
+            [style]="{width:'100%'}"
+              [options]="input.options"
+              class="custom-dropdown"
+              formControlName="{{ input.name }}"
+              [placeholder]="input.placeholder | translate"
+              [optionLabel]="input.optionLabel"
+              [optionValue]="input.optionValue"
+              [filter]="true"
+              [showClear]="true"
+              [filterBy]="input.filterBy"
+              
+          ></p-dropdown>
+          </ng-container><br><br>
+        </div>
+      </div>
+    </div>
+    <div class="text-end">
+      <button type="button" mat-flat-button class="gray" (click)="closeModal()">
+        <i class="ri-close-fill"></i>
+        {{ "GeneralStrings.LABEL_CLOSE" | translate }}
+      </button>
+      <button
+        type="button"
+        mat-flat-button
+        class="imako ml-2"
+        [disabled]="!form.valid"
+        (click)="
+           updateStatusCampaigns()
+        "
+      >
+        <i
+          [ngClass]="{
+            'ri-add-fill': data.type === 'add',
+            'ri-pencil-line': data.type !== 'add',
+          }"
+        ></i>
+        {{ ("GeneralStrings.LABEL_EDIT" | translate) }}
+      </button>
+    </div>
+  </form>
+</div>

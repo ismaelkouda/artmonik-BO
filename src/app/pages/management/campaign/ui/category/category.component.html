@@ -1,0 +1,178 @@
+<app-breadcrumb [breadcrumb]="breadcrumbObject"></app-breadcrumb>
+<p-tabView (onChange)="onChange($event.index)">
+  <p-tabPanel header="Liste" leftIcon="pi pi-list">
+
+      <div>
+        <mat-card-header>
+          <div class="d-flex justify-content-end align-items-center w-full">
+            <div class="col-md-6 d-flex justify-content-start align-items-center">
+              <h3 class="mb-0">
+                {{ "FormCategory.BODY_TITLE" | translate }}
+              </h3>
+            </div>
+            <div class="col-md-6 d-flex justify-content-end align-items-center">
+              <div class="spacer">
+                <button (click)="exportExcel()" mat-flat-button class="gray">
+                  <i class="ri-file-excel-2-fill"></i>
+                  {{ "GeneralStrings.LABEL_EXPORT" | translate }}
+                </button>
+              </div>
+              <div class="spacer">
+                <button
+                  (click)="loadAllCampaignCateroy()"
+                  mat-flat-button
+                  class="imako"
+                >
+                  <i class="ri-refresh-fill"></i>
+                  {{ "GeneralStrings.LABEL_REFRESH" | translate }}
+                </button>
+              </div>
+              <div>
+                <input
+                  type="text"
+                  (input)="onInputChange($event)"
+                  class="input-control"
+                  [placeholder]="'GeneralStrings.PLACEHOLDER_SEARCH' | translate"
+                />
+              </div>
+            </div>
+            
+          </div><br>
+          <div class="col-md-6 d-flex justify-content-start align-items-center">
+              
+            <button
+              (click)="showCampaignsCategoryMode('add', null)"
+              mat-flat-button
+              class="imako"
+            >
+              <i class="ri-add-fill"></i>
+              {{ "FormCategory.TITLE_MODAL.STORE" | translate }}
+            </button>
+          
+        </div>
+        </mat-card-header>
+  
+        <mat-card-content>
+          <div
+            class="item"
+            *ngIf="
+              listCampaignCategory && listCampaignCategory?.length > 0;
+              else skeletonLoader
+            "
+          >
+            
+    
+            
+            <div class="row mt-3">
+              <p-table
+                #dt
+                [value]="listCampaignCategory"
+                [rows]="10"
+                responsiveLayout="scroll"
+                [globalFilterFields]="globalFilterFieldsObject"
+                styleClass="p-datatable-gridlines"
+                [rowHover]="true"
+                dataKey="id"
+                currentPageReportTemplate="Affichage de {first} à {last} des {totalRecords} données"
+                [showCurrentPageReport]="true"
+              >
+                <ng-template pTemplate="header">
+                  <tr>
+                    <th scope="col" class="text-center">#</th>
+                    <ng-container *ngFor="let col of columns">
+                      <th [pSortableColumn]="col.field" scope="col" [class.text-center]="col.isCenter">
+                        {{ col.header | translate }}
+                        <p-sortIcon [field]="col.field"></p-sortIcon>
+                      </th>
+                    </ng-container>
+                    <th class="text-center">Actions</th>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-i="rowIndex" let-category>
+                  <tr>
+                    <td class="text-center">{{ i + 1 }}</td>
+                    <ng-container *ngFor="let col of columns">
+                      <ng-container *ngIf="col.isText">
+                        <td [class.text-center]="col.isCenter">
+                          {{ getCellValue(col.field, category) }}
+                        </td>
+                      </ng-container>
+                      <ng-container *ngIf="col.isActions">
+                        <td [class.text-center]="col.isCenter">
+                            <p-button
+                                    (click)="showImageModal(category)"
+                                    [label]="'Visualiser'"
+                                    styleClass="p-button-dark">
+                            </p-button>
+                        </td>
+                    </ng-container>
+                      <ng-container *ngIf="col.isBadge">
+                        <td [class.text-center]="col.isCenter">
+                          <span [ngSwitch]="category.status">
+                            <span *ngSwitchCase="'inactive'" class="badge inactive">
+                              {{ translateStatus(category.status) }}
+                            </span>
+                            <span *ngSwitchCase="'active'" class="badge active">
+                              {{ translateStatus(category.status) }}
+                            </span>
+                          </span>
+                        </td>
+                    </ng-container>
+                    </ng-container>
+                    <td class="text-center">
+                      <div class="spacer">
+                          <p-button
+                                  (click)="showCampaignsCategoryMode('edit', category)"
+                                  styleClass="p-button-dark" icon="pi pi-pencil">
+                          </p-button>
+                          
+                          &nbsp;
+                          <p-button
+                                  (click)="handleUpdateStatus(category)"
+                                  styleClass="p-button-secondary" [icon]="category.status === 'active' ? 'pi pi-lock' : 'pi pi-lock-open'">
+                          </p-button>
+                          &nbsp;
+                          <p-button
+                                  (click)="handleDelete(category)"
+                                  styleClass="p-button-danger" icon="pi pi-trash">
+                          </p-button>
+                      </div>
+                  </td>
+                  
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage">
+                  <tr *ngIf="listCampaignCategory?.length <= 0">
+                    <td class="text-center" colspan="15">
+                      <span>
+                        {{ "GeneralStrings.NO_DATA" | translate }}
+                      </span>
+                    </td>
+                  </tr>
+                </ng-template>
+              </p-table>
+              <app-paggination [totalRecords]="totalRecords" [rows]="rows"
+                (pageChange)="onPageChange($event)"></app-paggination>
+            </div>
+          </div>
+          <ng-template #skeletonLoader>
+            <ngx-skeleton-loader count="10"></ngx-skeleton-loader>
+          </ng-template>
+        </mat-card-content>
+      </div>
+
+  </p-tabPanel>
+  <p-tabPanel header="Historique" leftIcon="pi pi-history">
+
+      <div>
+          <app-history
+          [titlepage]="'FormCategory.BODY_TITLE_HISTORIQUE'"
+          [submodule]="'Category'"
+          ></app-history
+          >
+      
+      </div>
+
+  </p-tabPanel>
+</p-tabView>
+

@@ -1,0 +1,47 @@
+<div class="imako imako__full imako-bg-cover">
+  <div class="imako__form">
+    <div class="imako__form--middle">
+      <div class="imako__form-inner">
+        <div class="imako__logo">
+          <a><img width="230" alt="Logo" /></a>
+        </div>
+        <div class="imako__form-inside">
+          <div class="imako__form-middle">
+            <div class="imako__form-top">
+              <app-signin-form
+                *ngIf="currentRoute === 'sign-in'"
+              ></app-signin-form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="imako__banner imako-bg-cover"
+        style="
+          background-image: url(&quot;assets/img/bg-auth.jpg&quot;);
+          background-size: cover;
+        "
+      >
+        <div class="imako-wc__banner--img center">
+          <div class="image-container">
+            <img alt="Logo" />
+          </div>
+        </div>
+        <div class="imako__slider">
+          <div class="single-slider">
+            <div class="imako__slider--single">
+              <div class="imako__slider--content">
+                <h4 class="imako__slider--title">
+                  {{ "GeneralStrings.TITLE" | translate }}
+                </h4>
+                <p class="imako__slider--text">
+                  {{ "GeneralStrings.SUB_TITLE" | translate }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

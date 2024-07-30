@@ -1,0 +1,119 @@
+@media (max-width: 320px) {
+  .img__logo {
+    margin-top: -100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .img__logo {
+    margin-top: -100px;
+  }
+}
+
+@media (max-width: 600px) {
+  .img__logo {
+    margin-top: -100px;
+  }
+}
+
+#mobMes {
+  position: relative;
+  height: 100vh;
+  background: url("/src/assets/img/bg_portal_green.png");
+  background-size: cover;
+}
+
+img {
+  content: var(--logo-img-url);
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+#mobMes .mobMes {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.mobMes {
+  max-width: 720px;
+  width: 100%;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.mobMes .mobMes-404 {
+  height: 190px;
+}
+
+.mobMes .mobMes-404 h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 146px;
+  font-weight: 700;
+  color: #232323;
+}
+
+.mobMes h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0;
+  text-transform: none;
+  color: #232323;
+}
+
+.mobMes p {
+  font-family: "Montserrat", sans-serif;
+  color: #787878;
+  font-weight: 300;
+  font-size: 25px;
+}
+
+.mobMes a {
+  font-family: "Montserrat", sans-serif;
+  display: inline-block;
+  padding: 12px 30px;
+  font-weight: 700;
+  background-color: #f78409;
+  color: #fff;
+  border-radius: 40px;
+  text-decoration: none;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+
+.mobMes a:hover {
+  opacity: 0.8;
+}
+
+@media only screen and (max-width: 767px) {
+  .mobMes .mobMes-404 {
+    height: 115px;
+  }
+  .mobMes .mobMes-404 h1 {
+    font-size: 86px;
+  }
+  .mobMes .mobMes-404 h1 > span {
+    width: 86px;
+    height: 86px;
+  }
+}
+
+@keyframes floating {
+  from {
+    transform: scale(1.4) translate(0, 0);
+  }
+
+  50% {
+    transform: scale(1.4) translate(0, 15px);
+  }
+
+  to {
+    transform: scale(1.4) translate(0, 0);
+  }
+}

@@ -1,0 +1,111 @@
+<div class="dialog-header">
+  <h1>Demande de profil collecteur - {{data.user?.name}}</h1>
+  <button pButton icon="pi pi-times" (click)="close()" class="p-button-text"></button>
+</div>
+
+<div class="dialog-content">
+  <form [formGroup]="form">
+    <div class="grid">
+      <div class="col-4">
+        <p-fieldset legend="Infos du demandeur">
+          <div class="profile-info">
+            <div class="profile-photo">
+              <img [src]="BASE_URL + data.profil" alt="Photo de profil" class="profile-image">
+            </div>
+            <div class="info-container">
+              <div class="field-row">
+                <span class="field-label">Nom:</span>
+                <span class="field-value">{{data.lastname}}</span>
+              </div>
+              <div class="field-row">
+                <span class="field-label">Prénom:</span>
+                <span class="field-value">{{data.firstname}}</span>
+              </div>
+              <div class="field-row">
+                <span class="field-label">Type:</span>
+                <span class="field-value">{{data.type}}</span>
+              </div>
+              <div class="field-row">
+                <span class="field-label">Email:</span>
+                <span class="field-value">{{data.email}}</span>
+              </div>
+              <div class="field-row">
+                <span class="field-label">Téléphone:</span>
+                <span class="field-value">{{data.phone}}</span>
+              </div>
+            </div>
+          </div>
+        </p-fieldset>
+      </div>
+      
+      <div class="col-8">
+        <p-fieldset legend="Données collectées">
+          <div class="grid">
+            <div class="col-8">
+              <div class="field-row">
+                <span class="field-label">Type de document:</span>
+                <span class="field-value">{{data.document_type}}</span>
+              </div>
+              <div class="field-row">
+                <span class="field-label">Référence du document:</span>
+                <span class="field-value">{{data.document_reference}}</span>
+              </div>
+              <div class="field-row">
+                <span class="field-label">Site web:</span>
+                <span class="field-value">{{data.website}}</span>
+              </div>
+              <div class="field-row">
+                <span class="field-label">Date de naissance/création:</span>
+                <span class="field-value">{{data.birth_or_creation_date}}</span>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="document-photo-container">
+                <img [src]="BASE_URL + data.document_photo" alt="Photo du document" class="document-photo" (click)="showLargePhoto()">
+                <button pButton type="button" icon="pi pi-search-plus" class="p-button-rounded p-button-text" (click)="showLargePhoto()"></button>
+              </div>
+            </div>
+          </div>
+        </p-fieldset>
+        
+        <p-fieldset legend="Évaluation" class="mt-3">
+          <div class="evaluation-container">
+            <div class="row mb-2">
+              <span class="field-label">Accepté ?</span>
+            </div>
+            <div class="row mb-3">
+              <p-radioButton *ngFor="let option of evaluationOptions" 
+                             name="evaluation" 
+                             [value]="option.value" 
+                             formControlName="status" 
+                             [label]="option.label"
+                             class="mr-3">
+              </p-radioButton>
+            </div>
+            <div class="row mb-2">
+              <span class="field-label">Commentaire</span>
+            </div>
+            <div class="row">
+              <textarea 
+                rows="5"
+                cols="100" 
+                pInputTextarea 
+                formControlName="validation_details"
+                placeholder="Entrez votre commentaire ici...">
+              </textarea>
+            </div>
+          </div>
+        </p-fieldset>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="dialog-footer">
+  <p-button label="Valider" (onClick)="onValidate()" styleClass="p-button-success" [loading]="loading"></p-button>
+</div>
+
+<!-- Dialog pour afficher la photo en grand -->
+<p-dialog header="Photo du document" [(visible)]="displayLargePhoto" [modal]="true" [style]="{width: '50vw'}" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [draggable]="false" [resizable]="false">
+  <img [src]="BASE_URL + data.document_photo" alt="Photo du document" style="width: 100%; height: auto;">
+</p-dialog>

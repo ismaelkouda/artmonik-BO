@@ -1,0 +1,158 @@
+/* collector-detail-dialog.component.scss */
+.dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .dialog-content {
+    padding: 1em;
+  }
+  
+  /* detail-ask.component.scss */
+:host ::ng-deep {
+  .dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #03abf2;
+    border-bottom: 1px solid #dee2e6;
+    height: 75px;
+
+    h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      color: white;
+    }
+  }
+
+  .dialog-content {
+    padding: 1rem;
+  }
+
+  .p-fieldset {
+    margin-bottom: 1rem;
+  }
+
+  .field-row {
+    display: flex;
+    margin-bottom: 0.5rem;
+  }
+
+  .field-label {
+    font-weight: bold;
+    margin-right: 0.5rem;
+    min-width: 150px;
+  }
+
+  .evaluation-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .p-radiobutton {
+      margin-right: 1rem;
+    }
+
+    input[type="text"] {
+      flex-grow: 1;
+    }
+  }
+
+  .p-button {
+    margin-top: 1rem;
+  }
+}
+
+legend.p-fieldset-legend.ng-tns-c2053307-13 {
+  width: 100% !important;
+}
+
+button.p-ripple.p-element.p-button-success.p-button.p-component {
+  width: 100%;
+  background: red;
+}
+
+span.field-value {
+  font-size: 23px;
+  font-style: italic;
+}
+
+.p-button.p-button-text {
+  background-color: red !important;
+  color: white !important;
+  border-color: transparent;
+  margin-top: 2px;
+}
+
+span.field-label {
+  font-size: 22px;
+}
+
+.dialog-footer {
+  width: 50% !important;
+  margin: 0 auto;
+}
+
+/* new style */
+
+.profile-info {
+  display: flex;
+  align-items: center;
+}
+
+.profile-photo {
+  margin-right: 20px;
+}
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.info-container {
+  flex: 1;
+}
+
+.field-row {
+  margin-bottom: 10px;
+}
+
+.field-label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.document-photo {
+  max-width: 100%;
+  height: auto;
+}
+
+.evaluation-container {
+  padding: 10px;
+}
+
+.document-photo-container {
+  position: relative;
+  display: inline-block;
+}
+
+.document-photo {
+  max-width: 100%;
+  height: auto;
+  cursor: pointer;
+}
+
+.document-photo-container button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  opacity: 0.7;
+}
+
+.document-photo-container:hover button {
+  opacity: 1;
+}

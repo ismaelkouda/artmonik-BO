@@ -1,0 +1,131 @@
+<mat-card-header>
+  <div class="d-flex justify-content-end align-items-center w-full">
+    <div class="col-md-6 d-flex justify-content-start align-items-center">
+      <br>
+      <h3 class="mb-0">
+          {{ titlepage | translate }}
+      </h3><br>
+    </div> 
+    <div class="d-flex justify-content-end align-items-center w-full">
+      <div class="spacer">
+        <button (click)="exportExcel()" mat-flat-button class="gray">
+          <i class="ri-file-excel-2-fill"></i>
+          {{ "GeneralStrings.LABEL_EXPORT" | translate }}
+        </button>
+      </div>
+      <div class="spacer">
+        <button (click)="loadAllHistory()" mat-flat-button class="imako">
+          <i class="ri-refresh-fill"></i>
+          {{ "GeneralStrings.LABEL_REFRESH" | translate }}
+        </button>
+      </div>
+      <div>
+        <input
+          type="text"
+          (input)="onInputChange($event)"
+          class="input-control"
+          [placeholder]="'GeneralStrings.PLACEHOLDER_SEARCH' | translate"
+        />
+      </div>
+    </div>
+
+  </div><br>
+    <div class="col-md-9 d-flex justify-content-start align-items-center ">
+      <form [formGroup]="filterForm" *ngIf="filterForm" class="filter-form d-flex align-items-center flex-wrap">
+        <div *ngFor="let filterField of formInputFilter" class="filter-field">
+          <div class="form-group">
+            <label for="{{ filterField?.name }}">
+              <strong>{{ filterField?.label | translate }}</strong>
+              <span *ngIf="filterField?.required" class="text-danger">*</span>
+            </label>
+            <ng-container *ngIf="filterField?.type !== 'select'; else selectTemplate">
+              <input
+                name="{{ filterField?.name }}"
+                formControlName="{{ filterField?.name }}"
+                [placeholder]="filterField.placeholder | translate"
+                type="{{ filterField.type }}"
+                class="input-control"
+              />
+            </ng-container>
+            <ng-template #selectTemplate>
+              <p-dropdown
+                [options]="this[filterField?.options]"
+                [optionLabel]="filterField?.optionLabel"
+                [filter]="true"
+                [filterBy]="filterField?.filterBy"
+                formControlName="{{ filterField?.name }}"
+                [optionValue]="filterField?.optionValue"
+                [placeholder]="filterField?.placeholder | translate"
+              >
+                <ng-template let-data pTemplate="item">
+                  <div class="profile-item">
+                    <div>{{ data.libelle }}</div>
+                  </div>
+                </ng-template>
+              </p-dropdown>
+            </ng-template>
+          </div>
+        </div>
+        <p-button icon="pi pi-filter" class="btn-fil imako" style="margin-left: auto;"></p-button>
+      </form>
+    </div>
+    <div class="action-buttons d-flex justify-content-end align-items-center second-sec">
+        
+    </div>
+</mat-card-header><br>
+  
+<mat-card-content>
+    <div class="item" *ngIf="listHistory?.length >= 0; else skeletonLoader">
+        <div class="row">
+            <p-table #dt styleClass="p-datatable-gridlines" [value]="listHistory" [rows]="10"  responsiveLayout="scroll"
+                currentPageReportTemplate="Affichage de {first} à {last} des {totalRecords} données"
+                [globalFilterFields]="globalFilterFieldsObject" [showCurrentPageReport]="true">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th class="text-center">#</th>
+                        <ng-container *ngFor="let col of columns">
+                            <th [pSortableColumn]="col.field" scope="col" [ngClass]="{'text-center': col.isCenter}">
+                                {{ col.header | translate }}
+                                <p-sortIcon [field]="col.field"></p-sortIcon>
+                              </th>
+                        </ng-container>
+                        <th>Actions</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-i="rowIndex" let-admin>
+                    <tr>
+                        <td class="text-center">{{ i + 1 }}</td>
+                        <ng-container *ngFor="let col of columns">
+                            <ng-container *ngIf="col.isText">
+                                <td [class.text-center]="col.isCenter">{{ getCellValue(col.field, admin) }}</td>
+                            </ng-container>
+                        </ng-container>
+                        <td class="text-center">
+                            <div class="spacer">
+                                <p-button (click)="handleToggleViewDetails(admin)" styleClass="p-button-secondary"
+                                    [icon]="'pi pi-eye'">
+                                </p-button>
+                            </div>
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage">
+                  <tr *ngIf="!listHistory || listHistory.length === 0">
+                    <td class="text-center" colspan="15">
+                      <span>
+                        {{ "GeneralStrings.NO_DATA" | translate }}
+                      </span>
+                    </td>
+                  </tr>
+                </ng-template>
+                
+            </p-table>
+            <app-paggination [totalRecords]="totalRecords" [rows]="rows"
+            (pageChange)="onPageChange($event)"></app-paggination>
+        </div>
+    </div>
+
+    <ng-template #skeletonLoader>
+        <ngx-skeleton-loader count="10"></ngx-skeleton-loader>
+    </ng-template>
+</mat-card-content>

@@ -1,0 +1,68 @@
+.input-control {
+  outline: 0;
+  width: 100%;
+  height: 55px;
+  display: block;
+  box-shadow: unset;
+  border-radius: 10px;
+  color: var(--blackColor);
+  font-size: var(--fontSize);
+  border: 1px solid #b1b5c3;
+  transition: var(--transition);
+  padding: {
+    left: 20px;
+    right: 20px;
+  }
+  &::placeholder {
+    color: #a9a9c8;
+    transition: var(--transition);
+  }
+  &:focus {
+    border-color: var(--heraBlueColor);
+
+    &::placeholder {
+      color: transparent;
+    }
+  }
+  &[type="file"] {
+    line-height: 55px;
+  }
+}
+
+.spacer {
+  margin-right: 10px;
+}
+
+.full-width-dropdown {
+  width: 100% !important;
+}
+
+:host ::ng-deep .p-dropdown {
+  width: 100% !important;
+}
+
+.rounded {
+  font-family: var(--fontFamily) !important;
+  font-size: var(--fontSize) !important;
+  border-radius: 50% !important;
+}
+
+:host ::ng-deep .p-paginator {
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: end;
+
+  button {
+    width: 2rem;
+    border-radius: 0;
+  }
+
+  span {
+    background: #fff;
+    color: #6c757d;
+    border: 0 solid #e9ecef;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+  }
+}

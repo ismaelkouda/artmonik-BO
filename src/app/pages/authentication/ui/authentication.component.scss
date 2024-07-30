@@ -1,0 +1,665 @@
+.imako__full {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.image-container {
+  background-color: #fff;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.imako__form--middle {
+  background: #fff;
+  display: flex;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 100%;
+}
+.imako__banner {
+  background-color: #191b23;
+  min-width: 50%;
+  display: flex !important;
+  flex-direction: column;
+  min-height: 100vh;
+  gap: 0 !important;
+  justify-content: center;
+}
+.imako-bg {
+  background-color: #e8e5fe;
+}
+.imako__middle {
+  display: flex;
+  justify-content: center;
+}
+.imako__middle img {
+  max-width: 655px;
+}
+.imako__title {
+  font-size: 60px;
+  line-height: 74px;
+  margin: 0px 0 0;
+  color: #fff;
+}
+.imako__inner {
+  padding: 66px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.imako__form-inside {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.imako__banner--img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.imako__banner--img img {
+  max-width: 880px;
+}
+
+.imako__slider {
+  margin-top: 20px;
+}
+
+.imako__slider--title {
+  font-size: 32px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.imako__slider--text {
+  font-size: 20px;
+  color: #fff;
+}
+.imako__slider--single {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.imako__slider--content {
+  max-width: 667px;
+  z-index: 999;
+}
+
+.imako__btn:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+/* Welcome Form */
+.imako__form-middle {
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+}
+.imako__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+.imako__heading {
+  overflow: hidden;
+  margin-bottom: 0;
+}
+.imako__form-inner {
+  display: flex;
+  flex-direction: column;
+  padding: 60px 120px;
+  min-width: 50% !important;
+  gap: 115px;
+}
+.imako__form-title {
+  font-size: 32px;
+  width: auto;
+  background: transparent;
+  margin-bottom: 10px;
+}
+.imako__checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.imako__btn.imako__btn--login span {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: #6989ff;
+  position: absolute;
+  right: 15px;
+  font-size: 14px;
+}
+.imako__btn.imako__btn--login {
+  width: 100%;
+  justify-content: center;
+  gap: 78px;
+  padding: 0 15px;
+  position: relative;
+}
+.imako__button.imako__button--center {
+  align-items: center;
+  padding: 0 70px;
+}
+.form-group.form-group--big {
+  margin-top: 75px !important;
+}
+
+.imako-form-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.imako-form-checkbox label {
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  min-width: 20px !important;
+  height: 20px !important;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  padding: 0 !important;
+  border-radius: 100% !important;
+  background: transparent !important;
+  border: 2px solid #cbd5e0 !important;
+  width: 20px;
+  max-width: 20px;
+}
+input[type="checkbox"]:checked {
+  background: #21427b !important;
+  border-color: transparent !important;
+}
+.form-group.imako-wp__form--group {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  background: #f2f6ff;
+  border-radius: 12px;
+  padding: 15px 20px;
+  width: 100%;
+}
+.form-group.imako-wp__form--group label {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: #191b23;
+  font-weight: 500;
+  cursor: pointer;
+}
+.imako__select--tab {
+  background: #e8edff;
+  display: inline-flex;
+  padding: 6px 10px;
+  border-radius: 8px;
+  gap: 5px;
+  border-bottom: 0px;
+}
+.imako__select--tab a {
+  border-radius: 0px !important;
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+.imako__select--tab a.active,
+.imako__select--tab a:hover {
+  background: #21427b;
+  color: #fff !important;
+}
+.form-group.imako-wp__form--group label span {
+  color: #5d6a83;
+}
+.imako__form--inner--heading {
+  color: #191b23;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.imako__form-main--select {
+  max-width: 70%;
+}
+
+/* imako Form */
+.imako__form-main .form-group {
+  margin-top: 25px;
+  position: relative;
+}
+.imako__form-main input {
+  width: 100%;
+  height: 56px;
+  padding: 5px 50px 5px 20px;
+  background: #fafafa;
+  border-radius: 10px;
+  border: 1px solid #bdc3c7;
+  color: #191b23 !important;
+}
+.imako__form-main .form-group input:hover {
+  border-color: #21427b;
+}
+
+.imako__form-main .form-group:hover .imako__icon {
+  color: #21427b;
+}
+.imako__form-main .form-group__input {
+  position: relative;
+}
+.imako__form-main .imako__icon {
+  position: absolute;
+  right: 29px;
+  top: 50%;
+  color: #85878b;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  line-height: initial;
+  margin-top: -12px;
+}
+.imako__form-label {
+  font-size: 16px;
+}
+.imako__check-inline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.imako__check-inline label {
+  margin: 0;
+}
+.imako__form-new {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+.form-group.imako__new-bottom {
+  margin-top: 35px;
+}
+.forgot-pass {
+  font-size: 16px;
+}
+.imako__button {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+.imako__btn {
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  background: #21427b;
+  border-radius: 10px;
+  min-height: 55px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+}
+.imako__button .imako__btn.imako__btn-google {
+  color: #858d98;
+  font-weight: 400;
+}
+.imako__button .imako__btn:hover,
+.imako__button .imako__btn.imako__btn-google:hover {
+  background: #21427b;
+}
+.imako__bottom a {
+  color: #191b23;
+  font-weight: 400;
+}
+
+.imako__button img {
+  max-width: 18px;
+}
+.imako__button button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.imako__footer--copyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  color: #5d6a83 !important;
+  font-size: 14px;
+  margin-top: 20px;
+  font-weight: 500;
+}
+.pos-right {
+  position: absolute;
+  right: 0;
+}
+.imako__toggle {
+  position: absolute;
+  right: 15px;
+  top: 0;
+  color: #5d6a83;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.imako__form-login--label {
+  text-align: center;
+  position: relative;
+  margin-top: 30px;
+}
+.imako__form-login--label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 12px;
+  width: 100%;
+  height: 1px;
+  border-bottom: 1px solid #eeeff2;
+}
+.imako__form-login--label span {
+  background: #fff;
+  z-index: 100;
+  position: relative;
+  padding: 0 25px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #5d6a83;
+}
+.imako__btn-icon {
+  width: 22px;
+  height: 22px;
+  background: transparent;
+  border-radius: 100%;
+  transition: all 0.3s ease;
+}
+.imako__button .imako__btn.imako__btn-google:hover {
+  color: #fff;
+}
+.imako__button .imako__btn.imako__btn-google:hover .imako__btn-icon {
+  background: #fff;
+}
+.imako__text {
+  font-size: 16px;
+  color: #5d6a83;
+  margin: 0;
+  font-weight: 500;
+}
+.imako__text a {
+  color: #21427b;
+  text-decoration: underline;
+  font-weight: 500;
+}
+.imako__button--group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.imako__footer--list {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 0;
+  flex-wrap: wrap;
+}
+.imako__footer--list li a {
+  color: #191b23;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.imako__footer--text {
+  text-align: center;
+  color: #fff;
+  font-weight: 500;
+  margin-top: 20px;
+}
+.imako__footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+.imako__footer--language,
+.imako__footer--languages .nice-select {
+  border: none;
+  color: #191b23;
+  background: transparent !important;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 400;
+  min-height: initial !important;
+  height: initial !important;
+  margin: 0;
+}
+.imako__footer--languages .select2-selection.select2-selection--single {
+  background: transparent;
+  border: none !important;
+  padding: 0;
+  margin: 0;
+  color: #fff;
+  gap: 0 !important;
+  justify-content: initial;
+}
+.imako__footer--languages .select2-selection.select2-selection--single span {
+  padding: 0;
+  font-weight: 500;
+  color: #fff;
+}
+.imako__footer--languages .select2-selection.select2-selection--single span b {
+  border-color: #fff !important;
+  width: 8px;
+  height: 8px;
+}
+.imako__footer--language .list {
+  width: 130px !important;
+  bottom: 25px;
+  top: initial;
+}
+.nice-select.imako__footer--language::after {
+  right: -15px;
+  border-right-color: #191b23;
+  border-bottom-color: #191b23;
+  width: 8px;
+  height: 8px;
+}
+/* Verify Form */
+.imako__form-verify {
+  margin: 0;
+  padding: 0;
+  border: none;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.imako__form-verify input {
+  background: #bfcdff;
+  min-width: 64px;
+  max-width: 64px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
+  color: #21427b !important;
+  height: 64px;
+}
+.imako__form .imako__form-verify input {
+  padding: 0 !important;
+  text-align: center;
+  width: 64px;
+  height: 64px;
+  border: 1px solid #e4f2ff;
+  color: #21427b !important;
+  font-weight: 500;
+  font-size: 24px;
+  background: #e7f3ff;
+  border-radius: 8px;
+}
+.imako__form-verify input::-moz-placeholder {
+  color: #21427b !important;
+  opacity: 1 !important;
+}
+.imako__form-verify input::-webkit-input-placeholder {
+  color: #21427b !important;
+  opacity: 1 !important;
+}
+.imako__form-verify input:-ms-input-placeholder {
+  color: #21427b !important;
+  opacity: 1 !important;
+}
+.imako__form-verify input::-ms-input-placeholder {
+  color: #21427b !important;
+  opacity: 1 !important;
+}
+.imako__form-inner.bg-mask-img {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.imako__button-forget {
+  margin-top: 25px;
+}
+
+.imako__form-edit {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  gap: 15px;
+}
+.imako__form-edit p {
+  font-weight: 500;
+  font-size: 16px;
+}
+.imako__form-main--verify {
+  max-width: 100%;
+}
+/* Update Password */
+.imako__middle-update {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+.imako__update-contnet-title {
+  font-size: 36px;
+  margin-bottom: 0;
+}
+.imako__update-contnet-text {
+  font-size: 18px;
+  color: #5d6a83;
+  margin: 0;
+  line-height: 32px;
+  font-weight: 400;
+}
+.imako__update img {
+  max-width: 154px;
+}
+.form-mg-top15 {
+  margin-top: 15px !important;
+}
+.form-mg-top25 {
+  margin-top: 25px !important;
+}
+.form-mg-top30 {
+  margin-top: 30px !important;
+}
+.imako__bottom--reset {
+  color: #191b23;
+  font-weight: 400;
+  border-bottom: 1px solid;
+  line-height: initial;
+}
+.imako__ficon {
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+  left: 25px;
+  padding-right: 10px;
+  border-right: 1px solid #d5dae5;
+  line-height: initial;
+}
+.imako__form-main--password input {
+  padding-left: 70px;
+  height: 65px;
+  background: transparent;
+  border: 1px solid #bfcdff;
+  border-radius: 12px;
+}
+
+.imako__slist {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.imako__slist img {
+  max-width: 20px;
+}
+.imako__logo img {
+  content: var(--logo-black-img-url);
+  max-width: 235px;
+}
+
+.image-container img {
+  content: var(--logo-icon-url);
+  max-width: 150px;
+}
+
+.imako__slist a {
+  width: 20px;
+  background: rgba(10, 130, 253, 0.1);
+  border-radius: 10px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.imako__slist--info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.imako__banner.imako-bg-cover::after {
+  content: "";
+  background: #180909;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.imako-wc__banner--img {
+  z-index: 999;
+}

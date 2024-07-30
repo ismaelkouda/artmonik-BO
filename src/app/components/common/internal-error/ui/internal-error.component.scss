@@ -1,0 +1,15 @@
+.internal-error {
+  h4 {
+    max-width: 600px;
+    line-height: 1.4;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .internal-error {
+    h4 {
+      max-width: 600px;
+      line-height: 1.4;
+    }
+  }
+}

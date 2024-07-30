@@ -1,0 +1,12 @@
+<div class="modal-content">
+    <div class="modal-body">
+        <img [src]="BASE_URL+imageData?.image" [alt]="'Catégorie' + imageData?.title">
+    </div>
+    <div class="modal-footer">
+        <div>
+            <p-button styleClass="p-button-danger"
+                      (click)="closeModal()">
+            </p-button>
+        </div>
+    </div>
+</div>

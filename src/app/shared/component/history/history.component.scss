@@ -1,0 +1,99 @@
+.input-control {
+    outline: 0;
+    width: 100%;
+    height: 55px;
+    display: block;
+    box-shadow: unset;
+    border-radius: 10px;
+    color: var(--blackColor);
+    font-size: var(--fontSize);
+    border: 1px solid #B1B5C3;
+    transition: var(--transition);
+    padding: {
+      left: 20px;
+      right: 20px;
+    };
+    &::placeholder {
+      color: #A9A9C8;
+      transition: var(--transition);
+    }
+    &:focus {
+      border-color: var(--heraBlueColor);
+  
+      &::placeholder {
+        color: transparent;
+      }
+    }
+    &[type="file"] {
+      line-height: 55px;
+    }
+}
+
+.spacer {
+    margin-right: 10px;
+}
+
+
+
+
+
+.filter-sec {
+  width: 100%;
+  
+  .filter-form {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    width: 100%;
+
+    .filter-field {
+      flex: 1 1 auto;
+      min-width: 200px;
+
+      .form-group {
+        width: 100%;
+      }
+    }
+
+    .btn-fil {
+      margin-left: auto;
+    }
+  }
+}
+
+.filter-form {
+  .filter-field {
+    margin-bottom: 15px; // Ajouter une marge en bas de chaque champ pour l'espacement vertical
+  }
+
+  .filter-field:not(:last-child) {
+    margin-right: 15px; // Ajouter une marge à droite de chaque champ sauf le dernier pour l'espacement horizontal
+  }
+}
+
+
+.action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+  width: 100%;
+
+  .input-control {
+    width: 200px;
+  }
+}
+
+p-button.p-element.btn-fil.imako {
+  position: relative;
+  top: 5px;
+}
+
+
+.p-button {
+  color: white !important;
+  background: black !important;
+  &:hover{
+    background: black !important;
+  }
+}

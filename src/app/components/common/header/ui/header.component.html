@@ -1,0 +1,116 @@
+<div>
+  <header
+    class="header-area bg-white border-bottom-radius box-shadow mb-25"
+    [ngClass]="{ active: isToggled, sticky: isSticky }"
+  >
+    <div class="d-md-flex align-items-center justify-content-space-between">
+      <div class="header-left-side d-flex align-items-center">
+        <ul>
+          <li class="d-none d-lg-block">
+            <h4>
+              <strong>{{
+                "GeneralStrings.DIGITAL_PLATFORM" | translate
+              }}</strong
+              >&nbsp;
+              <span class="text-danger" *ngIf="envDeployment === 'PREPROD'">
+                {{ "GeneralStrings.ENV_DEV_PREPROD" | translate }}
+              </span>
+            </h4>
+          </li>
+        </ul>
+      </div>
+      <ul class="header-right-side d-flex align-items-center mt-0 mb-0">
+        <li>
+          <button
+            mat-icon-button
+            [matMenuTriggerFor]="languageMenu"
+            class="btn p-0 border-none rounded-circle position-relative"
+          >
+            <img
+              *ngIf="currentLanguage === 'fr'"
+              src="assets/img/flag/french.png"
+              alt="fr"
+            />
+            <img
+              *ngIf="currentLanguage === 'en'"
+              src="assets/img/flag/usa.png"
+              alt="us"
+            />
+          </button>
+          <mat-menu
+            class="language-menu-dropdown"
+            #languageMenu="matMenu"
+            xPosition="after"
+          >
+            <ul class="m-0">
+              <li *ngIf="currentLanguage === 'en'">
+                <button
+                  (click)="switchLanguage('fr')"
+                  type="button"
+                  class="d-fle align-items-center border-none"
+                >
+                  <img src="assets/img/flag/french.png" alt="french" />
+                  {{ "GeneralStrings.FR_LANG" | translate }}
+                </button>
+              </li>
+              <li *ngIf="currentLanguage === 'fr'">
+                <button
+                  (click)="switchLanguage('en')"
+                  type="button"
+                  class="d-flex align-items-center border-none"
+                >
+                  <img src="assets/img/flag/usa.png" alt="us" />
+                  {{ "GeneralStrings.EN_LANG" | translate }}
+                </button>
+              </li>
+            </ul>
+          </mat-menu>
+        </li>
+        <li class="d-none d-lg-block">
+          <div class="date-btn main-color fw-semibold position-relative">
+            <i class="flaticon-calendar"></i>
+            {{ formattedDate }}
+          </div>
+        </li>
+        <li>
+          <button
+            mat-icon-button
+            [matMenuTriggerFor]="profileMenu"
+            class="profile-btn main-color border-none bg-transparent position-relative"
+          >
+            <img
+              src="assets/img/user/user-icon.png"
+              class="rounded-circle"
+              alt="admin"
+            />
+            {{ accountInfo?.email }}
+            <span class="fw-semibold"
+              >{{ accountInfo?.name }}
+              {{ accountInfo?.first_name }}</span
+            >
+          </button>
+          <mat-menu
+            class="profile-menu-dropdown"
+            #profileMenu="matMenu"
+            xPosition="before"
+          >
+            <ul class="m-0">
+              <li>
+                <a class="cursor-pointer">
+                  <i class="ri-lock-2-line"></i>
+                  {{ "GeneralStrings.LABEL_PASSWORD" | translate }}
+                </a>
+              </li>
+              <li>
+                <a class="cursor-pointer" (click)="signOut()">
+                  <i class="ri-shut-down-line"></i>
+                  {{ "GeneralStrings.LABEL_LOGOUT" | translate }}
+                </a>
+              </li>
+            </ul>
+          </mat-menu>
+        </li>
+      </ul>
+    </div>
+  </header>
+</div>

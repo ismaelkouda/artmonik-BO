@@ -1,0 +1,526 @@
+{
+  "GeneralStrings": {
+    "TITLE": "Espace d'administration",
+    "SUB_TITLE": "Notre espace d'administration vous offre les outils nécessaires pour superviser, analyser et optimiser vos opérations avec facilité.",
+    "DIGITAL_PLATFORM" : "DIGITAL PLATFORM",
+    "ENV_DEV_PREPROD": "(PREPRODUCTION)",
+    "LABEL_EXPORT": "Exporter",
+    "LABEL_BACK": "Retour",
+    "PLACEHOLDER_SEARCH": "Recherche",
+    "LABEL_REFRESH": "Rafraîchir",
+    "LABEL_SAVE": "Enregistrer",
+    "LABEL_CLOSE": "Fermer",
+    "LABEL_CHOOSE": "Choisir",
+    "LABEL_OPEN": "Ouvrir",
+    "LABEL_EDIT": "Modifier",
+    "LABEL_DELETE": "Supprimer",
+    "NO_DATA": "Aucune donnée disponible",
+    "LABEL_PASSWORD": "Mot de passe",
+    "LABEL_LOGOUT": "Déconnexion",
+    "FR_LANG": "Français",
+    "EN_LANG": "Anglais",
+    "COPYRIGHT": "Copyright 2024 © <strong>KESTREL SYS</strong>",
+    "MessageToast": {
+      "noDataInTable": "Aucune donnée dans le tableau",
+      "FORM": {
+        "REQUIRED_FIELDS": "Les champs marqués d'un astérisque (*) sont obligatoires."
+      }
+    }
+  },
+  "MessageToast": {
+    "Login": {
+      "REQUIRED_FIELDS": "Un nom d'utilisateur et un mot de passe sont nécessaires"
+    },
+    "ForgotPassword": {
+      "REQUIRED_FIELDS": "Oups ! Il semble que vous ayez oublié de saisir votre adresse email. Veuillez la renseigner pour recevoir un lien de réinitialisation de mot de passe"
+    }
+  },
+  "COMMON_PAGE": {
+    "MOB_MES": "Pour une meilleure expérience, Nous vous invitons à utiliser un ordinateur portable.",
+    "INTERNAL_ERROR":{
+      "DESC": "Il semble que nous ayons une erreur interne, veuillez contacter l'administrateur."
+    },
+    "NOT_FOUND":{
+      "TITLE": "Oups ! La page que vous recherchez n'existe pas !",
+      "DESC": "La page que vous recherchez a peut-être été supprimée, son nom a changé ou elle est temporairement indisponible."
+    },
+    "NOT_NETWORK":{
+      "TITLE": "Problème de connexion réseau",
+      "DESC": "Votre connexion réseau semble être lente, ce qui peut entraîner des retards dans le traitement de votre requête."
+    }
+  },
+  "SIGN_IN": {
+    "TITLE": "Connexion",
+    "LABEL_REMEMBER_ME": "Se souvenir de moi",
+    "LABEL_FORGOT_PASSWORD": "Mot de passe oublié ?",
+    "FORM": {
+      "USERNAME": {
+        "LIBELLE": "Adresse email",
+        "PLACEHOLDER": "Ex : abc@email.com",
+        "IS_REQUIRED": true
+      },
+      "PASSWORD": {
+        "LIBELLE": "Mot de passe",
+        "PLACEHOLDER": "*****************",
+        "IS_REQUIRED": true
+      },
+      "LABEL_BTN_LOGIN": "Connexion"
+    }
+  },
+  "FORGOT_PASSWORD": {
+    "TITLE": "Mot de passe oublié",
+    "LABEL_SIGNIN": "Retour à la connexion",
+    "FORM": {
+      "EMAIL": {
+        "LIBELLE": "Email",
+        "PLACEHOLDER": "Ex : abc@email.com",
+        "IS_REQUIRED": true
+      }
+    },
+    "LABEL_BTN_FORGOT_PASSWORD": "Réinitialiser le mot de passe"
+  },
+  "MENU": [
+    { "title": "Tableau de bord" },
+    { "headTitle": "Modules de gestion" },
+    {
+      "title": "Campagnes",
+      "subItems": [
+        { "title": "Liste" },
+        {"title": "Catégories"}
+      ]
+    },
+    {
+      "title": "Comptabilité",
+      "subItems": [
+        { "title": "Dons" }
+      ]
+    },
+    {
+      "title": "Membre",
+      "subItems": [
+        { "title": "Liste" }
+      ]
+    },
+    {
+      "title": "File d'attente",
+      "subItems": [
+        { "title": "Demande de profil collecteur" }
+      ]
+    },
+    { "headTitle": "Administration" },
+    {
+      "title": "Paramètres & Sécurité",
+      "subItems": [
+        { "title": "Administrateurs" },
+        { "title": "Faq" }
+      ]
+    }
+  ],
+  "STAT": {
+    "TITLE_DASH": "Vue Génerale - Plateforme Kestrel"
+  },
+  "FormUser": {
+    "BREADCRUMB": {
+      "FIRST": "Paramètres & Sécurité",
+      "SECOND": "Administrateurs"
+    },
+    "COLUMNS" : [
+      {"header": "Nom"},
+      {"header": "Prénoms"},
+      {"header": "Email"},
+      {"header": "Statut"},
+      {"header": "Crée le"},
+      {"header": "Modifié le"}
+    ],
+    "BODY_TITLE": "Liste des administrateurs",
+    "BODY_TITLE_HISTORIQUE": "Historique des administrateurs",
+    "userList": "Liste des utilisateurs",
+    "TITLE_MODAL": {
+      "STORE": "Ajouter un administrateur",
+      "UPDATE": "Modification infos"
+    },
+    "NOM": {
+      "LIBELLE": "Nom",
+      "PLACEHOLDER": "Ex : DOE",
+      "IS_REQUIRED": true
+    },
+    "PRENOMS": {
+      "LIBELLE": "Prénoms",
+      "PLACEHOLDER": "Ex : John Maxwell",
+      "IS_REQUIRED": true
+    },
+    "EMAIL": {
+      "LIBELLE": "Email",
+      "PLACEHOLDER": "Ex : abc@email.com",
+      "IS_REQUIRED": true
+    },
+    "PASSWORD": {
+      "LIBELLE": "Mot de passe",
+      "PLACEHOLDER": "*********",
+      "IS_REQUIRED": true
+    },
+    "CONFIRM_PASSWORD": {
+      "LIBELLE": "Confirmer le mot de passe",
+      "PLACEHOLDER": "*********",
+      "IS_REQUIRED": true
+    },
+    "ROLE":{
+      "LIBELLE": "Rôle",
+      "PLACEHOLDER": "Sélectionner le rôle",
+      "IS_REQUIRED": true
+    },
+    "UPDATE_CONFIRMATION_STATUS": {
+      "title": "En êtes vous sûr ?",
+      "message": "Vous allez <u><strong>{{status}}</strong></u> le compte de l'utilisateur <u><strong>{{name}}</strong></u>",
+      "cancelButton": "Non",
+      "confirmButton": "Oui"
+    },
+    "DELETE_CONFIRMATION": {
+      "title": "En êtes vous sûr ?",
+      "message": "Vous allez supprimer l'utilisateur <u><strong>{{name}}</strong></u>",
+      "cancelButton": "Non",
+      "confirmButton": "Oui"
+    },
+    "DEFAULT_PASSWORD": {
+      "LIBELLE": "Mot de passe par défaut",
+      "PLACEHOLDER": "**********",
+      "IS_REQUIRED": true
+    }
+  },
+
+  "STATUT_MODAL": {
+    
+    "COLUMNS" : [
+      {"header": "Nom"},
+      {"header": "Email"},
+      {"header": "Rôle"},
+      {"header": "Status"},
+      {"header": "Crée le"},
+      {"header": "Modifié le"}
+    ],
+    
+    "TITLE_MODAL": {
+      "STORE": "Ajouter un administrateur",
+      "UPDATE": "Modifier le status de la campagne"
+    },
+    
+    "STATUT":{
+      "LIBELLE": "Statut",
+      "PLACEHOLDER": "Sélectionner le status",
+      "IS_REQUIRED": true
+    }
+    
+  },
+
+  "FormFaq":{
+    "BREADCRUMB": {
+      "FIRST": "Paramètres & Sécurité",
+      "SECOND": "FAQ"
+    },
+    "COLUMNS" : [
+      {"header": "Titre"},
+      {"header": "Description"},
+      {"header" : "Status"},
+      {"header": "Crée le"},
+      {"header": "Modifié le"}
+    ],
+    "BODY_TITLE": "Liste des FAQ",
+    "BODY_TITLE_HISTORIQUE": "Historique des FAQ",
+    "faqList": "Liste des FAQ",
+    "TITLE_MODAL":{
+      "STORE": "Ajouter un questionnaire",
+      "UPDATE": "Modification infos"
+    },
+    "UPDATE_CONFIRMATION_STATUS": {
+      "title": "En êtes vous sûr ?",
+      "message": "Vous allez modifier le statut de FAQ <u><strong>{{libelle}}</strong></u>",
+      "cancelButton": "Non",
+      "confirmButton": "Oui"
+    },
+    "NOM":{
+      "LIBELLE":"Titre",
+      "PLACEHOLDER": "Ex : Question 1",
+      "IS_REQUIRED": true
+    },
+    "DESCRIPTION":{
+      "LIBELLE":"Description",
+      "PLACEHOLDER": "Ex :  Reponse à la question 1",
+      "IS_REQUIRED": true
+    },
+    "DELETE_CONFIRMATION": {
+      "title": "En êtes vous sûr ?",
+      "message": "Vous allez supprimer la FAQ <u><strong>{{title}}</strong></u>",
+      "cancelButton": "Non",
+      "confirmButton": "Oui"
+    }
+  }, 
+  "HISTORY":{
+    
+    "COLUMNS" : [
+      {"header": "Utilisateur"},
+      {"header" : "Opération"},
+      {"header": "Détail opération"},
+      {"header": "Crée le"}
+    ]
+  }, 
+  
+  
+
+  "FormCategory":{
+    "BREADCRUMB": {
+      "FIRST": "Module de gestion",
+      "SECOND": "Catégorie"
+    },
+    "COLUMNS" : [
+      {"header": "Libellé"},
+      {"header": "Image"},
+      {"header" : "Statut"},
+      {"header" : "Crée le "},
+      {"header" : "Modifié le "}
+    ],
+    "BODY_TITLE": "Liste des catégories",
+    "BODY_TITLE_HISTORIQUE": "Historique des catégories",
+    "faqList": "Liste des FAQ",
+    "TITLE_MODAL":{
+      "STORE": "Ajouter une catégorie",
+      "UPDATE": "Modification infos"
+    },
+    "NOM":{
+      "LIBELLE":"Libelle",
+      "PLACEHOLDER": "Ex : Animals",
+      "IS_REQUIRED": true
+    },
+    "MINIATURE":{
+      "LIBELLE":"Miniature",
+      "DESC": "Taille recommandée 457 x 359 px",
+      "IS_REQUIRED": true
+    },
+    "UPDATE_CONFIRMATION_STATUS": {
+      "title": "En êtes vous sûr ?",
+      "message": "Vous allez modifier le statut de la categorie <u><strong>{{title}}</strong></u>",
+      "cancelButton": "Non",
+      "confirmButton": "Oui"
+    },
+    "DELETE_CONFIRMATION": {
+      "title": "En êtes vous sûr ?",
+      "message": "Vous allez supprimer la FAQ <u><strong>{{title}}</strong></u>",
+      "cancelButton": "Non",
+      "confirmButton": "Oui"
+    }
+    
+  }, 
+
+  "FormModePaiement":{
+    "BREADCRUMB": {
+      "FIRST": "Paramètres & Sécurité",
+      "SECOND": "Mode de paiement"
+    },
+    "COLUMNS" : [
+      {"header": "Libelle"},
+      {"header": "Description"},
+      {"header": "Status"},
+      {"header": "Crée le"},
+      {"header": "Modifié le"}
+    ],
+    "BODY_TITLE": "Liste du mode de paiement",
+    "BODY_TITLE_HISTORIQUE": "Historique des mode de paiement",
+
+    "paymentModeList": "Liste des modes de paiement",
+    "TITLE_MODAL":{
+      "STORE": "Ajouter un mode de paiement",
+      "UPDATE": "Modification infos"
+    },
+    "DELETE_CONFIRMATION": {
+      "title": "En êtes vous sûr ?",
+      "message": "Vous allez supprimer le mode de paiement <u><strong>{{libelle}}</strong></u>",
+      "cancelButton": "Non",
+      "confirmButton": "Oui"
+    },
+    "UPDATE_CONFIRMATION_STATUS": {
+      "title": "En êtes vous sûr ?",
+      "message": "Vous allez modifier le statut du mode de paiement <u><strong>{{libelle}}</strong></u>",
+      "cancelButton": "Non",
+      "confirmButton": "Oui"
+    },
+    "NOM":{
+      "LIBELLE":"Libellé",
+      "PLACEHOLDER": "Ex : MTN Money",
+      "IS_REQUIRED": true
+    },
+    "DESCRIPTION":{
+      "LIBELLE":"Description",
+      "PLACEHOLDER": "Ex : MTN Mobile Money est un service de paiement électronique proposé par MTN, un opérateur de téléphonie mobile présent dans de nombreux pays d'Afrique et du Moyen-Orient.",
+      "IS_REQUIRED": true
+    }
+  },
+  "FORMCAMPAIGN":{
+    "BREADCRUMB": {
+      "FIRST": "Module de gestion",
+      "SECOND": "Campagnes"
+    },
+    "COLUMNS" : [
+      {"header": "Titre"},
+      {"header": "Utilisateur"},
+      {"header": "Objectif (Fcfa)"},
+      {"header": "Fonds collectés"},
+      {"header": "Statut"},
+      {"header": "Échéance"},
+      {"header": "Crée le"}
+    ],
+    "BODY_TITLE": "Liste des campagnes",
+    "BODY_TITLE_HISTORIQUE": "Historique des campagnes",
+
+    "TITLE":{
+      "LIBELLE":"titre",
+      "PLACEHOLDER": "Ex : Campagne 1",
+      "IS_REQUIRED": true
+    },
+    "USER":{
+      "LIBELLE":"Utilisateur",
+      "PLACEHOLDER": "Sélectionner un utilisateur",
+      "IS_REQUIRED": true
+    },
+    "GOAL_AMOUNT":{
+      "LIBELLE":"Objectif (Fcfa)",
+      "PLACEHOLDER": "Ex : 1000",
+      "IS_REQUIRED": true
+    },
+    "CURRENT_AMOUNT":{
+      "LIBELLE":"Fonds collectés",
+      "PLACEHOLDER": "Ex : 1000",
+      "IS_REQUIRED": true
+    },
+    "STATUT":{
+      "LIBELLE":"Statut",
+      "PLACEHOLDER": "Sélectionner un statut",
+      "IS_REQUIRED": true
+    },
+    "DEADLINE":{
+      "LIBELLE":"Échéance",
+      "PLACEHOLDER": "Sélectionner une date",
+      "IS_REQUIRED": true
+    },
+    "UPDATE_CONFIRMATION_STATUS": {
+      "title": "En êtes vous sûr ?",
+      "message": "Vous allez modifier le statut de la campagne <u><strong>{{title}}</strong></u>",
+      "cancelButton": "Non",
+      "confirmButton": "Oui"
+    }
+
+  },
+  "DEPOSIT":{
+    "BREADCRUMB": {
+      "FIRST": "Module de gestion",
+      "SECOND": "Depôt"
+    },
+    "COLUMNS" : [
+      {"header": "Reference"},
+      {"header": "Telephone"},
+      {"header": "Utilisateur"},
+      {"header": "Mode de rechargement"},
+      {"header": "Montant"},
+      {"header": "Date/heure"}
+    ],
+    "BODY_TITLE": "Liste des depôts",
+    "BODY_TITLE_HISTORIQUE": "Historique des depôts"
+
+  },
+  "COLECTOR-PROFILE":{
+    "BREADCRUMB": {
+      "FIRST": "Module de gestion",
+      "SECOND": "Demande de profil collecteur"
+    },
+    "COLUMNS" : [
+      {"header": "Nom utilisateur"},
+      {"header": "email"},
+      {"header": "status"},
+      {"header": "rôle"},
+      {"header": "portefueille"},
+      {"header": "Crée le"}
+    ],
+    "BODY_TITLE": "Liste des demandes de profil collecteur",
+    "BODY_TITLE_HISTORIQUE": "Historique des demandes"
+
+  },
+  "ACCOUNTING":{
+    "BREADCRUMB": {
+      "FIRST": "Module de gestion",
+      "SECOND": "Comptabilité"
+    },
+    "COLUMNS" : [
+      {"header": "Ref"},
+      {"header": "Montant"},
+      {"header": "Flotte"},
+      {"header": "Utilisateur"},
+      {"header": "Télephone"},
+      {"header": "Statut"},
+      {"header": "Date/Heure"}
+    ],
+    "BODY_TITLE": "Liste des rechargements"
+  },
+  "MEMBERS":{
+    "BREADCRUMB": {
+      "FIRST": "Module de gestion",
+      "SECOND": "membres"
+    },
+    "COLUMNS" : [
+      {"header": "Nom & Prénoms"},
+      {"header": "Email"},
+      {"header": "Statut"},
+      {"header": "Crée le"},
+      {"header": "Modifié le "}
+    ],
+    "UPDATE_CONFIRMATION_STATUS": {
+      "title": "En êtes vous sûr ?",
+      "message": "Vous allez modifier le statut du membre <u><strong>{{libelle}}</strong></u>",
+      "cancelButton": "Non",
+      "confirmButton": "Oui"
+    },
+    "BODY_TITLE": "Liste des membres",
+    "BODY_TITLE_HISTORIQUE": "Historique des membres"
+  },
+
+  "HISTORICAL":{
+    "BREADCRUMB": {
+      "FIRST": "Module de gestion",
+      "SECOND": "historique"
+    },
+    "COLUMNS" : [
+      {"header": "Date"},
+      {"header": "Event"},
+      {"header": "Action"},
+      {"header": "Source"}
+    ],
+    "BODY_TITLE": "Liste des historiques"
+  },
+
+  "FORMFILTER":{
+   
+    "DATE_DEBUT":{
+      "LIBELLE":"date debut",
+      "PLACEHOLDER": "Ex : 01/01/2000",
+      "IS_REQUIRED": true
+    },
+    "DATE_FIN":{
+      "LIBELLE":"date de fin",
+      "PLACEHOLDER": "Ex : 01/01/2000",
+      "IS_REQUIRED": true
+    },
+    "MODULE":{
+      "LIBELLE": "Module",
+      "PLACEHOLDER": "Sélectionner le module",
+      "IS_REQUIRED": false
+    },
+    "UTILISATEUR":{
+      "LIBELLE": "Utilisateur",
+      "PLACEHOLDER": "Sélectionner l utilisateur",
+      "IS_REQUIRED": false
+    }
+
+  }
+
+
+
+
+
+}
