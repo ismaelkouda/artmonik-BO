@@ -33,7 +33,7 @@ export class DashboardComponent implements OnInit {
   }
 
   async ngAfterViewInit() {
-    await this.loadDataDashboard();
+    // await this.loadDataDashboard();
   }
 
   public async loadDataDashboard(): Promise<void> {
@@ -42,7 +42,7 @@ export class DashboardComponent implements OnInit {
       this.notyfService,
     ); 
     this.listInfoDashb = this.response?.data;
-    console.log(this.listInfoDashb);
+    // console.log(this.listInfoDashb);
    
    /* this.listInfoDashb = this.response?.map((dashboardData) =>
       this.mapAccountingModeDates(dashboardData),

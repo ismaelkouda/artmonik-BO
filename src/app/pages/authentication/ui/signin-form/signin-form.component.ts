@@ -7,6 +7,7 @@ import { EncodingDataService } from "@/shared/services/encoding-data.service";
 import { TranslateService } from "@ngx-translate/core";
 import { AuthService } from "@/pages/authentication/data-access/services/auth.service";
 import { handleSignIn } from "@/pages/authentication/data-access/functions/auth.functions";
+import { Router } from "@angular/router";
 
 const PrimaryWhite = "#ffffff";
 const SecondaryGrey = "#ccc";
@@ -43,6 +44,7 @@ export class SignInFormComponent implements OnInit {
     private notyfService: NotyfService,
     private translate: TranslateService,
     private storage: EncodingDataService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -78,7 +80,8 @@ export class SignInFormComponent implements OnInit {
       handleSignIn(
         signInFn,
         this.notyfService,
-        this.storage
+        this.storage,
+        this.router
       )
         .then(() => {
           this.loading = false;

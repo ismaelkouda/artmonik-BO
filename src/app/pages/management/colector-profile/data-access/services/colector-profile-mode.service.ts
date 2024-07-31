@@ -29,8 +29,8 @@ export class CollectorRequestService {
       data.id,
     );
 
-    console.log('Generated URL:', url);
-    console.log('Data to be sent:', data);
+    // console.log('Generated URL:', url);
+    // console.log('Data to be sent:', data);
     
     return this.http.post(`${url}`, data);
   }

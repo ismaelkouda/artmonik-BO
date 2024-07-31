@@ -43,7 +43,7 @@ export class HeaderComponent implements OnInit {
 
   public ngOnInit() {
      this.accountInfo =  JSON.parse(this.store.getData('userSession'));
-      console.log(this.accountInfo);
+      // console.log(this.accountInfo);
   }
 
   public signOut() {

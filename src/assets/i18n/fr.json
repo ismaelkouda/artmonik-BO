@@ -25,6 +25,14 @@
       "FORM": {
         "REQUIRED_FIELDS": "Les champs marqués d'un astérisque (*) sont obligatoires."
       }
+    },
+    "DASHBOARD": {
+      "libelle_1": "Total des membres ",
+      "libelle_2": "Total des membres payeurs",
+      "libelle_3": "Total des membres non payeurs",
+      "libelle_4": "Total des administrateurs",
+      "libelle_5": "Montant total payé",
+      "libelle_6": "Pourcentage"
     }
   },
   "MessageToast": {
@@ -82,61 +90,34 @@
   "MENU": [
     { "title": "Tableau de bord" },
     { "headTitle": "Modules de gestion" },
-    {
-      "title": "Campagnes",
-      "subItems": [
-        { "title": "Liste" },
-        {"title": "Catégories"}
-      ]
-    },
-    {
-      "title": "Comptabilité",
-      "subItems": [
-        { "title": "Dons" }
-      ]
-    },
-    {
-      "title": "Membre",
-      "subItems": [
-        { "title": "Liste" }
-      ]
-    },
-    {
-      "title": "File d'attente",
-      "subItems": [
-        { "title": "Demande de profil collecteur" }
-      ]
-    },
-    { "headTitle": "Administration" },
-    {
-      "title": "Paramètres & Sécurité",
-      "subItems": [
-        { "title": "Administrateurs" },
-        { "title": "Faq" }
-      ]
-    }
+    { "title": "Membres" },
+    { "headTitle": "Modules de Paramétrage" },
+    { "title": "Utilisateurs" }
   ],
   "STAT": {
     "TITLE_DASH": "Vue Génerale - Plateforme Kestrel"
   },
+ 
   "FormUser": {
     "BREADCRUMB": {
       "FIRST": "Paramètres & Sécurité",
-      "SECOND": "Administrateurs"
+      "SECOND": "Utilisateurs"
     },
     "COLUMNS" : [
       {"header": "Nom"},
       {"header": "Prénoms"},
       {"header": "Email"},
+      {"header": "Téléphone"},
+      {"header": "Message"},
       {"header": "Statut"},
       {"header": "Crée le"},
       {"header": "Modifié le"}
     ],
-    "BODY_TITLE": "Liste des administrateurs",
-    "BODY_TITLE_HISTORIQUE": "Historique des administrateurs",
+    "BODY_TITLE": "Liste des Utilisateurs",
+    "BODY_TITLE_HISTORIQUE": "Historique des Utilisateurs",
     "userList": "Liste des utilisateurs",
     "TITLE_MODAL": {
-      "STORE": "Ajouter un administrateur",
+      "STORE": "Ajouter un Utilisateurs",
       "UPDATE": "Modification infos"
     },
     "NOM": {
@@ -152,6 +133,16 @@
     "EMAIL": {
       "LIBELLE": "Email",
       "PLACEHOLDER": "Ex : abc@email.com",
+      "IS_REQUIRED": true
+    },
+    "TELEPHONE": {
+      "LIBELLE": "Téléphone",
+      "PLACEHOLDER": "Ex : 0707400441",
+      "IS_REQUIRED": true
+    },
+    "MESSAGE": {
+      "LIBELLE": "Message",
+      "PLACEHOLDER": "Ex : azerty",
       "IS_REQUIRED": true
     },
     "PASSWORD": {
@@ -464,20 +455,55 @@
       "SECOND": "membres"
     },
     "COLUMNS" : [
-      {"header": "Nom & Prénoms"},
+      {"header": "Nom complet"},
       {"header": "Email"},
+      {"header": "Whatsapp"},
+      {"header": "Motivation"},
+      {"header": "Invité par"},
+      {"header": "Méthode de paiement"},
       {"header": "Statut"},
       {"header": "Crée le"},
-      {"header": "Modifié le "}
+      {"header": "Modifié le"}
     ],
+    "BODY_TITLE": "Liste des membres",
+    "BODY_TITLE_HISTORIQUE": "Historique des membres",
+    "userList": "Liste des membres",
+    "TITLE_MODAL": {
+      "STORE": "Ajouter un membres",
+      "UPDATE": "Modification infos"
+    },
+    "FULLNAME": {
+      "LIBELLE": "fullname",
+      "PLACEHOLDER": "Ex : DOE",
+      "IS_REQUIRED": true
+    },
+    "EMAIL": {
+      "LIBELLE": "Email",
+      "PLACEHOLDER": "Ex : abc@email.com",
+      "IS_REQUIRED": true
+    },
+    "WHATSAPP": {
+      "LIBELLE": "Whatsapp",
+      "PLACEHOLDER": "Ex : 1234567890",
+      "IS_REQUIRED": true
+    },
+    "MOTIVATION": {
+      "LIBELLE": "motivation",
+      "PLACEHOLDER": "Ex : apprendre",
+      "IS_REQUIRED": true
+    },
     "UPDATE_CONFIRMATION_STATUS": {
       "title": "En êtes vous sûr ?",
       "message": "Vous allez modifier le statut du membre <u><strong>{{libelle}}</strong></u>",
       "cancelButton": "Non",
       "confirmButton": "Oui"
     },
-    "BODY_TITLE": "Liste des membres",
-    "BODY_TITLE_HISTORIQUE": "Historique des membres"
+    "DELETE_CONFIRMATION": {
+      "title": "En êtes vous sûr ?",
+      "message": "Vous allez supprimer le membre <u><strong>{{name}}</strong></u>",
+      "cancelButton": "Non",
+      "confirmButton": "Oui"
+    }
   },
 
   "HISTORICAL":{

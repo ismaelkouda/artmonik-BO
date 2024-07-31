@@ -71,7 +71,7 @@ export class DetailAskComponent implements OnInit {
   async onValidate(): Promise<void> {
     if (this.isFormValid()) {
       const updatedData = this.form.getRawValue();
-      console.log("Data sending", updatedData);
+      // console.log("Data sending", updatedData);
       
 
       await this.handleCollectorOperation(() =>

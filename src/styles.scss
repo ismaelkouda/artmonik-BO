@@ -84,6 +84,11 @@ textarea:disabled {
   border-width: 0 0 3px 0 !important;
 }
 
+.p-tabview .p-tabview-panels {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
 .badge {
   display: inline-block;
   padding: 0.25em 0.5em;

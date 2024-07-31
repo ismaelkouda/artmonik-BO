@@ -31,13 +31,14 @@ import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { MatPaginatorIntl } from "@angular/material/paginator";
 import { GlobalErrorHandlerService } from "@/shared/services/global-error-handler.service";
+import { DashboardComponent } from "./pages/dashboard/ui/dashboard.component";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
 
 @NgModule({
-  declarations: [AppComponent, LoaderComponent],
+  declarations: [AppComponent, LoaderComponent, DashboardComponent],
   imports: [
     AppRoutingModule,
     BrowserModule,

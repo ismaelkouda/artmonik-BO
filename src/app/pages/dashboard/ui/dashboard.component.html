@@ -118,131 +118,104 @@
     <h3>{{ "STAT.TITLE_DASH" | translate }}</h3>
   </div>
 </div>
-
-<div class="row mt-10" *ngIf="listInfoDashb; else skeletonLoader">
+<!-- *ngIf="listInfoDashb; else skeletonLoader" -->
+<div class="row mt-10">
   <div class="p-grid p-fluid dashboard-cards">
     <div class="row">
       <!-- Total des campagnes -->
-      <div class="p-col-12 col-3">
+      <div class="p-col-12 col-4">
         <p-card class="my-card" [style]="{ 'background-color': '#42A5F5' }" >
           <ng-template pTemplate="content">
             <div class="card-content">
-              <span class="card-value">{{ listInfoDashb.total }}</span>
+              <!-- <span class="card-value">{{ listInfoDashb.total }}</span> -->
               <div class="icon-container">
-                <i class="pi pi-folder card-icon"></i>
+                <i class="pi pi-users card-icon"></i>
               </div>
             </div>
-            <p class="card-text">Total des campagnes</p>
+            <p class="card-text">{{"GeneralStrings.DASHBOARD.libelle_1"  | translate}}</p>
           </ng-template>
         </p-card>
       </div>
 
       <!-- Campagnes en cours -->
-      <div class="p-col-12 col-3">
+      <div class="p-col-12 col-4">
         <p-card class="my-card" [style]="{ 'background-color': '#42A5F5' }" >
           <ng-template pTemplate="content">
             <div class="card-content">
-              <span class="card-value">{{ listInfoDashb.nb_campagne_en_cours }}</span>
+              <!-- <span class="card-value">{{ listInfoDashb.nb_campagne_en_cours }}</span> -->
               <div class="icon-container">
-                <i class="pi pi-refresh card-icon"></i>
+                <i class="pi pi-user-plus card-icon"></i>
               </div>
             </div>
-            <p class="card-text">Campagnes en cours</p>
+            <p class="card-text">{{"GeneralStrings.DASHBOARD.libelle_2"  | translate}}</p>
           </ng-template>
         </p-card>
       </div>
 
       <!-- Campagnes inactives -->
-      <div class="p-col-12 col-3">
+      <div class="p-col-12 col-4">
         <p-card class="my-card" [style]="{ 'background-color': '#42A5F5' }" >
           <ng-template pTemplate="content">
             <div class="card-content">
-              <span class="card-value">{{ listInfoDashb.nb_campagne_inactive }}</span>
+              <!-- <span class="card-value">{{ listInfoDashb.nb_campagne_inactive }}</span> -->
               <div class="icon-container">
-                <i class="pi pi-ban card-icon"></i>
+                <i class="pi pi-user-minus card-icon"></i>
               </div>
             </div>
-            <p class="card-text">Campagnes inactives</p>
-          </ng-template>
-        </p-card>
-      </div>
-
-      <!-- Campagnes complètes -->
-      <div class="p-col-12 col-3">
-        <p-card class="my-card" [style]="{ 'background-color': '#42A5F5' }" >
-          <ng-template pTemplate="content">
-            <div class="card-content">
-              <span class="card-value">{{ listInfoDashb.nb_campagne_terminer }}</span>
-              <div class="icon-container">
-                <i class="pi pi-check card-icon"></i>
-              </div>
-            </div>
-            <p class="card-text">Campagnes complètes</p>
+            <p class="card-text">{{"GeneralStrings.DASHBOARD.libelle_3"  | translate}}</p>
           </ng-template>
         </p-card>
       </div>
     </div>
 
     <div class="row">
-      <!-- Catégories inactives -->
-      <div class="p-col-12 col-3">
+
+      <!-- Campagnes complètes -->
+      <div class="p-col-12 col-4">
         <p-card class="my-card" [style]="{ 'background-color': '#42A5F5' }" >
           <ng-template pTemplate="content">
             <div class="card-content">
-              <span class="card-value">{{ listInfoDashb.nb_categorie_inactive }}</span>
+              <!-- <span class="card-value">{{ listInfoDashb.nb_campagne_terminer }}</span> -->
               <div class="icon-container">
-                <i class="pi pi-tag card-icon"></i>
+                <i class="pi pi-user-edit card-icon"></i>
               </div>
             </div>
-            <p class="card-text">Catégories inactives</p>
+            <p class="card-text">{{"GeneralStrings.DASHBOARD.libelle_4"  | translate}}</p>
+          </ng-template>
+        </p-card>
+      </div>
+
+
+      <!-- Catégories inactives -->
+      <div class="p-col-12 col-4">
+        <p-card class="my-card" [style]="{ 'background-color': '#42A5F5' }" >
+          <ng-template pTemplate="content">
+            <div class="card-content">
+              <!-- <span class="card-value">{{ listInfoDashb.nb_categorie_inactive }}</span> -->
+              <div class="icon-container">
+                <i class="pi pi-wallet card-icon"></i>
+              </div>
+            </div>
+            <p class="card-text">{{"GeneralStrings.DASHBOARD.libelle_5"  | translate}}</p>
           </ng-template>
         </p-card>
       </div>
 
       <!-- Total des catégories -->
-      <div class="p-col-12 col-3">
+      <div class="p-col-12 col-4">
         <p-card class="my-card" [style]="{ 'background-color': '#42A5F5' }" >
           <ng-template pTemplate="content">
             <div class="card-content">
-              <span class="card-value">{{ listInfoDashb.nb_categorie_total }}</span>
+              <!-- <span class="card-value">{{ listInfoDashb.nb_categorie_total }}</span> -->
               <div class="icon-container">
-                <i class="pi pi-tags card-icon"></i>
+                <i class="pi pi-percentage card-icon"></i>
               </div>
             </div>
-            <p class="card-text">Total des catégories</p>
+            <p class="card-text">{{"GeneralStrings.DASHBOARD.libelle_6"  | translate}}</p>
           </ng-template>
         </p-card>
       </div>
 
-      <!-- Utilisateurs inactifs -->
-      <div class="p-col-12 col-3">
-        <p-card class="my-card" [style]="{ 'background-color': '#42A5F5' }" >
-          <ng-template pTemplate="content">
-            <div class="card-content">
-              <span class="card-value">{{ listInfoDashb.nb_user_inactive }}</span>
-              <div class="icon-container">
-                <i class="pi pi-user card-icon"></i>
-              </div>
-            </div>
-            <p class="card-text">Utilisateurs inactifs</p>
-          </ng-template>
-        </p-card>
-      </div>
-
-      <!-- Total des utilisateurs -->
-      <div class="p-col-12 col-3">
-        <p-card class="my-card" [style]="{ 'background-color': '#42A5F5' }" >
-          <ng-template pTemplate="content">
-            <div class="card-content">
-              <span class="card-value">{{ listInfoDashb.nb_user_total }}</span>
-              <div class="icon-container">
-                <i class="pi pi-user card-icon"></i>
-              </div>
-            </div>
-            <p class="card-text">Total des utilisateurs</p>
-          </ng-template>
-        </p-card>
-      </div>
     </div>
   </div>
 </div>

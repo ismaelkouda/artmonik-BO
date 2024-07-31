@@ -40,7 +40,7 @@ export class GlobalHttpInterceptorService implements HttpInterceptor {
           if (error.error instanceof ErrorEvent) {
             console.error("Error Event");
           } else {
-            console.log(`error status : ${error.status} ${error.statusText}`);
+            // console.log(`error status : ${error.status} ${error.statusText}`);
             switch (error.status) {
               case 400:
                 this.notyfService.showToast(
@@ -72,10 +72,10 @@ export class GlobalHttpInterceptorService implements HttpInterceptor {
           handled = true;
         }
         if (handled) {
-          console.log("return back ");
+          // console.log("return back ");
           return of(error);
         } else {
-          console.log("throw error back to to the subscriber");
+          // console.log("throw error back to to the subscriber");
         }
       }),
     );

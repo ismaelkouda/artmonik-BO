@@ -1,8 +1,6 @@
 import { NgModule } from "@angular/core";
 
 import { MaterialModule } from "./material/material.module";
-import { HttpClientModule } from "@angular/common/http";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgScrollbarModule } from "ngx-scrollbar";
 import { DragDropModule } from "@angular/cdk/drag-drop";
 import { CdkAccordionModule } from "@angular/cdk/accordion";
@@ -12,32 +10,8 @@ import { NgxDropzoneModule } from "ngx-dropzone";
 import { ColorPickerModule } from "ngx-color-picker";
 import { CarouselModule } from "ngx-owl-carousel-o";
 import { FullCalendarModule } from "@fullcalendar/angular";
-import { CommonModule, DecimalPipe } from "@angular/common";
-import { RouterModule } from "@angular/router";
 import { NgxPaginationModule } from "ngx-pagination";
-
-// Primeng Modules
-import { TableModule } from "primeng/table";
-import { ButtonModule } from "primeng/button";
-import { InputTextModule } from "primeng/inputtext";
-import { DropdownModule } from "primeng/dropdown";
-import { SplitButtonModule } from "primeng/splitbutton";
-import { CalendarModule } from "primeng/calendar";
-import { OverlayPanelModule } from "primeng/overlaypanel";
-import { PaginatorModule } from "primeng/paginator";
-import { TabViewModule } from "primeng/tabview";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import { CheckboxModule } from "primeng/checkbox";
-import { InputTextareaModule } from "primeng/inputtextarea";
-import { ContentComponent } from "./component/layout/content/content.component";
-import { FullComponent } from "./component/layout/full/full.component";
-import { CardModule } from 'primeng/card';
-import { FieldsetModule } from 'primeng/fieldset';
-import { RadioButtonModule } from 'primeng/radiobutton';
-import { DialogModule } from 'primeng/dialog';
-
-
-
 
 // Directives
 import { DisableKeyPressDirective } from "./directives/disable-key-press.directive";
@@ -55,7 +29,12 @@ import { NotNetworkComponent } from "@/components/common/not-network/ui/not-netw
 import { DateFormatService } from "@/shared/utils/date-format.service";
 import { PagginationComponent } from './component/paggination/paggination.component';
 import { HistoryComponent } from './component/history/history.component';
+import { ContentComponent } from "./component/layout/content/content.component";
+import { FullComponent } from "./component/layout/full/full.component";
 
+
+import { AngularModule } from "./angular.module";
+import { PrimengModule } from "./primeng.module";
 
 @NgModule({
   declarations: [
@@ -74,44 +53,28 @@ import { HistoryComponent } from './component/history/history.component';
     HistoryComponent,
   ],
   imports: [
-    CommonModule,
+    AngularModule,
+    PrimengModule,
     MaterialModule,
     NgScrollbarModule,
-    FormsModule,
     FullCalendarModule,
-    ReactiveFormsModule,
-    DialogModule,
     CarouselModule,
     DragDropModule,
-    HttpClientModule,
     CdkAccordionModule,
     NgxGaugeModule,
     NgxMatTimepickerModule,
     NgxPaginationModule,
     NgxDropzoneModule,
     ColorPickerModule,
-    TableModule,
-    FieldsetModule,
-    ButtonModule,
-    InputTextModule,
-    DropdownModule,
-    RadioButtonModule,
-    SplitButtonModule,
-    CalendarModule,
-    OverlayPanelModule,
-    PaginatorModule,
-    TabViewModule,
-    RouterModule,
     NgbModule,
-    CardModule,
-    CheckboxModule,
-    InputTextareaModule,
     NgxSkeletonLoaderModule,
     NgxLoadingModule.forRoot({}),
     TranslateModule,
   ],
-  providers: [DecimalPipe, DateFormatService],
+  providers: [DateFormatService],
   exports: [
+    AngularModule,
+    PrimengModule,
     NgbModule,
     MaterialModule,
     BreadcrumbComponent,
@@ -121,12 +84,9 @@ import { HistoryComponent } from './component/history/history.component';
     PagginationComponent,
     DisableKeyPressDirective,
     DisablePastDatesDirective,
-    CardModule,
-    FieldsetModule,
-    TabViewModule,
-    RadioButtonModule,
-    DialogModule,
-    HistoryComponent
+    HistoryComponent,
+    NgxSkeletonLoaderModule,
+    TranslateModule
   ],
 })
 export class SharedModule {}

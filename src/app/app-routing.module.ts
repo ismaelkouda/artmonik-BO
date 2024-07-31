@@ -8,38 +8,42 @@ import { full } from "./shared/routes/full.routes";
 import { NotNetworkComponent } from "./components/common/not-network/ui/not-network.component";
 import { InternalErrorComponent } from "./components/common/internal-error/ui/internal-error.component";
 
+import { authentificationRoutes } from "src/app/pages/authentication/authentication-routing.module";
+
+export const AUTH = 'auth';
+
 const routes: Routes = [
   {
-    path: "",
-    redirectTo: "auth/sign-in",
-    pathMatch: "full",
+    path: AUTH,
+    children: authentificationRoutes
   },
-  {
-    path: "mobile-message",
-    loadChildren: () =>
-      import(
-        "src/app/shared/component/mobile-message/mobile-message.module"
-      ).then((m) => m.MobileMessageModule),
-  },
-  {
-    path: "not-network",
-    component: NotNetworkComponent,
-  },
-  {
-    path: "error-500",
-    component: InternalErrorComponent,
-  },
+  // {
+  //   path: "mobile-message",
+  //   loadChildren: () =>
+  //     import(
+  //       "src/app/shared/component/mobile-message/mobile-message.module"
+  //     ).then((m) => m.MobileMessageModule),
+  // },
+  // {
+  //   path: "not-network",
+  //   component: NotNetworkComponent,
+  // },
+  // {
+  //   path: "error-500",
+  //   component: InternalErrorComponent,
+  // },
   {
     path: "",
     component: ContentComponent,
     children: content,
   },
-  {
-    path: "",
-    component: FullComponent,
-    children: full,
-  },
-  { path: "**", component: NotFoundComponent }, // This line will remain down from the whole pages component list
+  { path: "**", redirectTo: "" },
+  // {
+  //   path: "",
+  //   component: FullComponent,
+  //   children: full,
+  // },
+  // { path: "**", component: NotFoundComponent }, // This line will remain down from the whole pages component list
 ];
 
 @NgModule({

@@ -100,8 +100,8 @@ export class CategoryFormComponent implements OnInit {
   async storeCampaignsCategoryMode(): Promise<void> {
     if (this.isFormValid()) {
       const formData = new FormData();
-      console.log(this.form.get('title').value);
-      console.log(this.form.get('image').value);
+      // console.log(this.form.get('title').value);
+      // console.log(this.form.get('image').value);
       
       formData.append('title',this.form.get('title').value);
       
@@ -152,7 +152,7 @@ export class CategoryFormComponent implements OnInit {
             this.notyfService,
           ),
         );
-        console.log('Update result:', result);
+        // console.log('Update result:', result);
         this.updateSuccessful.emit();
       } catch (error) {
         console.error("Error updating campaign category: ", error);

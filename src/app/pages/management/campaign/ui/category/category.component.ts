@@ -173,7 +173,7 @@ export class CategoryComponent implements OnInit, AfterViewInit, OnDestroy {
   };
 
   const modalRef = this.modalService.open(ImageModalComponent, modalOptions);
-  console.log("contenu de category", category);
+  // console.log("contenu de category", category);
   
   modalRef.componentInstance.imageData = category;
   
@@ -329,7 +329,7 @@ export class CategoryComponent implements OnInit, AfterViewInit, OnDestroy {
     try {
       this.response = await this.getUserAction(data);
       if (!this.response?.error) {
-        console.log("user deleted successfully");
+        // console.log("user deleted successfully");
         
         this.loadAllCampaignCateroy();
       }

@@ -261,7 +261,7 @@ export class ListComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   public openDialogCampaignStatus(type: string, data: any): void {
-    console.log("les datas passés en parametres ");
+    // console.log("les datas passés en parametres ");
     
     let dialogData: DialogData = { type: type, property: {} };
     dialogData.property = type === "edit" ? data : dialogData.property;

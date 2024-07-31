@@ -142,7 +142,7 @@ export class HistoryComponent {
 
   async ngAfterViewInit() {
     await this.loadAllHistory();
-    console.log(this.loadAllHistory());
+    // console.log(this.loadAllHistory());
     
   }
 

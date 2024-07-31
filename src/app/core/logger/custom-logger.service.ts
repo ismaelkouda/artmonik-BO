@@ -11,12 +11,12 @@ export class CustomLoggerService {
 
   log(message: string): void {
     if (environment.logLevel > 1) {
-      console.log(message);
+      // console.log(message);
     }
   }
   info(message: string): void {
     if (environment.logLevel > 0) {
-      console.log(message);
+      // console.log(message);
     }
   }
 

@@ -20,6 +20,6 @@ fs.readFile(envFilePath, 'utf8', (err, data) => {
 
     fs.writeFile(envFilePath, result, 'utf8', (err) => {
         if (err) return console.log(`Error writing file: ${err}`);
-        console.log(`Environment set to ${env}`);
+        // console.log(`Environment set to ${env}`);
     });
 });

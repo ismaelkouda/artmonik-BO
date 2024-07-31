@@ -3,16 +3,16 @@
 
     // PROD Config
     window.__env.prod = {
-        apiUrl: 'https://kestrelci.net/backend/api/v1/',
-        fileUrl: 'https://kestrelci.net/backend/',
+        apiUrl: 'https://eyd-conf.com/backend/api/v1/',
+        fileUrl: 'https://eyd-conf.com/backend/',
         environmentDeployment: 'PROD',
         enableDebug: false
     };
 
     // DEV Config
     window.__env.dev = {
-        apiUrl: 'http://localhost/kestrelci_backend/api/v1/',
-        fileUrl: 'http://localhost/kestrelci_backend/',
+        apiUrl: 'https://eyd-conf.com/backend/api/v1/',
+        fileUrl: 'https://eyd-conf.com/backend/',
         environmentDeployment: 'DEV',
         enableDebug: true
     };
