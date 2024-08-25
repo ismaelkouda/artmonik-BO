@@ -13,6 +13,7 @@ import { CardModule } from 'primeng/card';
 import { FieldsetModule } from 'primeng/fieldset';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { DialogModule } from 'primeng/dialog';
+import { EditorModule } from 'primeng/editor';
 
 import { NgModule } from '@angular/core';
 
@@ -33,7 +34,8 @@ import { NgModule } from '@angular/core';
     CardModule,
     FieldsetModule,
     RadioButtonModule,
-    DialogModule
+    DialogModule,
+    EditorModule
   ],
   exports: [
     TableModule,
@@ -50,7 +52,8 @@ import { NgModule } from '@angular/core';
     CardModule,
     FieldsetModule,
     RadioButtonModule,
-    DialogModule
+    DialogModule,
+    EditorModule
   ]
 })
 export class PrimengModule {}

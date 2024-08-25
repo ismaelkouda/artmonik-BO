@@ -35,6 +35,7 @@ import { FullComponent } from "./component/layout/full/full.component";
 
 import { AngularModule } from "./angular.module";
 import { PrimengModule } from "./primeng.module";
+import { UiTitleComponent } from "./component/ui-title/ui-title.component";
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { PrimengModule } from "./primeng.module";
     DisablePastDatesDirective,
     PagginationComponent,
     HistoryComponent,
+    UiTitleComponent
   ],
   imports: [
     AngularModule,
@@ -86,7 +88,9 @@ import { PrimengModule } from "./primeng.module";
     DisablePastDatesDirective,
     HistoryComponent,
     NgxSkeletonLoaderModule,
-    TranslateModule
+    TranslateModule,
+    UiTitleComponent,
+    
   ],
 })
 export class SharedModule {}

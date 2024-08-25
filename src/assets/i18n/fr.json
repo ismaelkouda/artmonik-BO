@@ -14,12 +14,14 @@
     "LABEL_OPEN": "Ouvrir",
     "LABEL_EDIT": "Modifier",
     "LABEL_DELETE": "Supprimer",
+    "LABEL_ARTIST": "Artiste",
+    "LABEL_EVENEMENTIEL": "Evenementiel",
     "NO_DATA": "Aucune donnée disponible",
     "LABEL_PASSWORD": "Mot de passe",
     "LABEL_LOGOUT": "Déconnexion",
     "FR_LANG": "Français",
     "EN_LANG": "Anglais",
-    "COPYRIGHT": "Copyright 2024 © <strong>KESTREL SYS</strong>",
+    "COPYRIGHT": "Copyright 2024 © <strong>ARTMONIK SYS</strong>",
     "MessageToast": {
       "noDataInTable": "Aucune donnée dans le tableau",
       "FORM": {
@@ -91,11 +93,25 @@
     { "title": "Tableau de bord" },
     { "headTitle": "Modules de gestion" },
     { "title": "Membres" },
+    { "title": "Artistes" },
+    { "title": "Evénementiels" },
+    { "title": "Catégories d'artistes" },
+    { "title": "Slides"},
+    { "title": "Label", 
+      "subItems": [
+        { "title": "A propos" },
+        { "title": "Champs d'action" }
+      ]
+    },
+    { "title": "Services"},
     { "headTitle": "Modules de Paramétrage" },
+    { "title": "Logo"},
+    { "title": "Newsletter" },
+    { "title": "Messaging" },
     { "title": "Utilisateurs" }
   ],
   "STAT": {
-    "TITLE_DASH": "Vue Génerale - Plateforme Kestrel"
+    "TITLE_DASH": "Vue Génerale - Plateforme Artmonik"
   },
  
   "FormUser": {
@@ -178,6 +194,553 @@
       "IS_REQUIRED": true
     }
   },
+ 
+  "FormArtist": {
+    "BREADCRUMB": {
+      "FIRST": "Module de gestion",
+      "SECOND": "Artiste"
+    },
+    "COLUMNS" : [
+      {"header": "Nom"},
+      {"header": "Prénoms"},
+      {"header": "Email"},
+      {"header": "Téléphone"},
+      {"header": "Catégorie"},
+      {"header": "Image"},
+      {"header": "Crée le"},
+      {"header": "Modifié le"}
+    ],
+    "BODY_TITLE": "Liste des artistes",
+    "BODY_TITLE_DETAILS": "Détails de l'artiste {libelle}",
+    "BODY_TITLE_HISTORIQUE": "Historique des artistes",
+    "userList": "Liste des artistes",
+    "TITLE_MODAL": {
+      "STORE": "Ajouter un artiste",
+      "UPDATE": "Modification de l'artiste {libelle}"
+    },
+    "NOM_COMPLET": {
+      "LIBELLE": "Nom complet",
+      "PLACEHOLDER": "Ex : DOE",
+      "IS_REQUIRED": true
+    },
+    "EMAIL": {
+      "LIBELLE": "Email",
+      "PLACEHOLDER": "Ex : abc@email.com",
+      "IS_REQUIRED": true
+    },
+    "CATEGORIE":{
+      "LIBELLE": "Catégorie",
+      "PLACEHOLDER": "Sélectionner la categorie",
+      "IS_REQUIRED": true
+    },
+    "IMAGE": {
+      "LIBELLE": "Image",
+      "PLACEHOLDER": "Sélectionner une image",
+      "IS_REQUIRED": true
+    },
+    "TITRE": {
+      "LIBELLE": "Titre",
+      "PLACEHOLDER": "Ex : Titre",
+      "IS_REQUIRED": true
+    },
+    "BIOGRAPHIE": {
+      "LIBELLE": "Biographie",
+      "PLACEHOLDER": "Entrer une biographie...",
+      "IS_REQUIRED": true
+    },
+    "FACEBOOK": {
+      "LIBELLE": "Facebook",
+      "PLACEHOLDER": "Ex : http://facebook.com/johndoe",
+      "IS_REQUIRED": false
+    },
+    "TWITTER": {
+      "LIBELLE": "Twitter",
+      "PLACEHOLDER": "Ex : http://twitter.com/johndoe",
+      "IS_REQUIRED": false
+    },
+    "INSTAGRAM": {
+      "LIBELLE": "Instagram",
+      "PLACEHOLDER": "Ex : http://instagram.com/johndoe",
+      "IS_REQUIRED": false
+    },
+    "YOUTUBE": {
+      "LIBELLE": "Youtube",
+      "PLACEHOLDER": "Ex : http://youtube.com/johndoe",
+      "IS_REQUIRED": false
+    },
+    "VIDEOS_LINK": {
+      "LIBELLE": "Lien de videos",
+      "PLACEHOLDER": "Ex : http://youtube.com/johndoe",
+      "IS_REQUIRED": false
+    },
+    "SPOTIFY": {
+      "LIBELLE": "Spotify",
+      "PLACEHOLDER": "Ex : http://spotify.com/johndoe",
+      "IS_REQUIRED": false
+    },
+    "DEEZER": {
+      "LIBELLE": "Deezer",
+      "PLACEHOLDER": "Ex : http://deezer.com/johndoe",
+      "IS_REQUIRED": false
+    },
+    "APPLE_MUSIC": {
+      "LIBELLE": "Apple music",
+      "PLACEHOLDER": "Ex : http://applemusic.com/johndoe",
+      "IS_REQUIRED": false
+    },
+    "NAPSTER": {
+      "LIBELLE": "Napster",
+      "PLACEHOLDER": "Ex : http://napster.com/johndoe",
+      "IS_REQUIRED": false
+    },
+    "ITUNES_STORE": {
+      "LIBELLE": "Itunes store",
+      "PLACEHOLDER": "Ex : http://itunes.com/johndoe",
+      "IS_REQUIRED": false
+    },
+    "UPDATE_CONFIRMATION_STATUS": {
+      "title": "En êtes vous sûr ?",
+      "message": "Vous allez modifier le statut de l'artiste <u><strong>{{title}}</strong></u>",
+      "cancelButton": "Non",
+      "confirmButton": "Oui"
+    },
+    "DELETE_CONFIRMATION": {
+      "title": "En êtes vous sûr ?",
+      "message": "Vous allez supprimer l'artiste <u><strong>{{title}}</strong></u>",
+      "cancelButton": "Non",
+      "confirmButton": "Oui"
+    }
+  },
+ 
+  "FormEvenementiel": {
+    "BREADCRUMB": {
+      "FIRST": "Module de gestion",
+      "SECOND": "Evénementiels"
+    },
+    "COLUMNS" : [
+      {"header": "Titre"},
+      {"header": "Tags"},
+      {"header": "Publié le"},
+      {"header": "Publié par"},
+      {"header": "Modifié le"}
+    ],
+    "BODY_TITLE": "Liste des événementiels",
+    "BODY_TITLE_DETAILS": "Détails de l'événementiels {libelle}",
+    "BODY_TITLE_HISTORIQUE": "Historique des événementiels",
+    "userList": "Liste des événementiels",
+    "TITLE_MODAL": {
+      "STORE": "Ajouter un événementiel",
+      "UPDATE": "Modification de l'événementiel {libelle}",
+      "DETAILS": "Détails de l'événementiel {libelle}"
+    },
+    "TITRE": {
+      "LIBELLE": "Titre",
+      "PLACEHOLDER": "Ex : Titre",
+      "IS_REQUIRED": true
+    },
+    "TAGS": {
+      "LIBELLE": "Tag",
+      "PLACEHOLDER": "Ex : abc@email.com",
+      "IS_REQUIRED": true
+    },
+    "PUBLIE_PAR": {
+      "LIBELLE": "Publié par",
+      "PLACEHOLDER": "Sélectionner une image",
+      "IS_REQUIRED": true
+    },
+    "CATEGORIE":{
+      "LIBELLE": "Catégorie",
+      "PLACEHOLDER": "Sélectionner la categorie",
+      "IS_REQUIRED": true
+    },
+    "IMAGE": {
+      "LIBELLE": "Image",
+      "PLACEHOLDER": "Sélectionner une image",
+      "IS_REQUIRED": true
+    },
+    "DESCRIPTION": {
+      "LIBELLE": "Description",
+      "PLACEHOLDER": "Entrer une description...",
+      "IS_REQUIRED": true
+    },
+    "UPDATE_CONFIRMATION_STATUS": {
+      "title": "En êtes vous sûr ?",
+      "message": "Vous allez modifier le statut de l'événementiel <u><strong>{{title}}</strong></u>",
+      "cancelButton": "Non",
+      "confirmButton": "Oui"
+    },
+    "DELETE_CONFIRMATION": {
+      "title": "En êtes vous sûr ?",
+      "message": "Vous allez supprimer l'événementiel <u><strong>{{title}}</strong></u>",
+      "cancelButton": "Non",
+      "confirmButton": "Oui"
+    }
+  },
+
+  "FormCategoryArtist": {
+    "BREADCRUMB": {
+      "FIRST": "Module de gestion",
+      "SECOND": "Categorie d'artiste"
+    },
+    "COLUMNS" : [
+      {"header": "Libelle"},
+      {"header": "Description"},
+      {"header": "Statut"},
+      {"header": "Crée le"},
+      {"header": "Modifié le"}
+    ],
+    "BODY_TITLE": "Liste des categories d'artistes",
+    "BODY_TITLE_HISTORIQUE": "Historique des categories d'artistes",
+    "userList": "Liste des categories d'artistes",
+    "TITLE_MODAL": {
+      "STORE": "Ajouter une categorie d'artiste",
+      "UPDATE": "Modification la categorie {libelle}"
+    },
+    "LIBELLE": {
+      "LIBELLE": "Libelle",
+      "PLACEHOLDER": "Ex : Peinture",
+      "IS_REQUIRED": true
+    },
+    "DESCRIPTION": {
+      "LIBELLE": "Description",
+      "PLACEHOLDER": "Ex : azerty",
+      "IS_REQUIRED": true
+    },
+    "STATUT":{
+      "LIBELLE":"Statut",
+      "PLACEHOLDER": "Sélectionner un statut",
+      "IS_REQUIRED": true
+    },
+    "UPDATE_CONFIRMATION_STATUS": {
+      "title": "En êtes vous sûr ?",
+      "message": "Vous allez modifier le statut de la catégorie <u><strong>{{libelle}}</strong></u>",
+      "cancelButton": "Non",
+      "confirmButton": "Oui"
+    },
+    "DELETE_CONFIRMATION": {
+      "title": "En êtes vous sûr ?",
+      "message": "Vous allez supprimer la catégorie <u><strong>{{libelle}}</strong></u>",
+      "cancelButton": "Non",
+      "confirmButton": "Oui"
+    }
+  },
+
+  "FormSlides":{
+    "BREADCRUMB": {
+      "FIRST": "Module de gestion",
+      "SECOND": "Slides"
+    },
+    "COLUMNS" : [
+      {"header": "Titre"}, 
+      {"header" : "Description"},
+      {"header" : "Lien de page"},
+      {"header": "Image"},
+      {"header" : "Crée le "},
+      {"header" : "Modifié le "}
+    ],
+    "BODY_TITLE": "Liste des slides",
+    "faqList": "Liste des FAQ",
+    "TITLE_MODAL":{
+      "STORE": "Ajouter un slide",
+      "UPDATE": "Modification du slide {libelle}"
+    },
+    "TITRE": {
+      "LIBELLE": "Titre",
+      "PLACEHOLDER": "Saisir le titre",
+      "IS_REQUIRED": true
+    },
+    "DESCRIPTION": {
+      "LIBELLE": "Description",
+      "PLACEHOLDER": "Saisir une description",
+      "IS_REQUIRED": false
+    },
+    "LIEN_PAGE": {
+      "LIBELLE": "Lien de page",
+      "PLACEHOLDER": "Saisir une description",
+      "IS_REQUIRED": false
+    },
+    "FILE": {
+      "LIBELLE": "Fichier",
+      "PLACEHOLDER": "Saisir un fichier",
+      "IS_REQUIRED": true 
+    },
+    "DELETE_CONFIRMATION": {
+      "title": "En êtes vous sûr ?",
+      "message": "Vous allez supprimer le slide <u><strong>{{libelle}}</strong></u>",
+      "cancelButton": "Non",
+      "confirmButton": "Oui"
+    }
+    
+  }, 
+
+  "FormApropos":{
+    "BREADCRUMB": {
+      "FIRST": "Module de gestion",
+      "SECOND": "À propos"
+    },
+    "COLUMNS" : [
+      {"header": "Titre"}, 
+      {"header" : "Sous titre"},
+      {"header" : "Content"},
+      {"header" : "Crée le "},
+      {"header" : "Modifié le "}
+    ],
+    "BODY_TITLE": "Liste des À propos",
+    "faqList": "Liste des À propos",
+    "TITLE_MODAL":{
+      "STORE": "Ajouter un À propos",
+      "UPDATE": "Modification de À propos {libelle}"
+    },
+    "TITRE": {
+      "LIBELLE": "Titre",
+      "PLACEHOLDER": "Saisir le titre",
+      "IS_REQUIRED": true
+    },
+    "SOUS_TITRE": {
+      "LIBELLE": "Sous titre",
+      "PLACEHOLDER": "Saisir le sous titre",
+      "IS_REQUIRED": true
+    },
+    "CONTENT": {
+      "LIBELLE": "Content",
+      "PLACEHOLDER": "Saisir le contenu",
+      "IS_REQUIRED": true
+    },
+    "DELETE_CONFIRMATION": {
+      "title": "En êtes vous sûr ?",
+      "message": "Vous allez supprimer À propos <u><strong>{{libelle}}</strong></u>",
+      "cancelButton": "Non",
+      "confirmButton": "Oui"
+    }
+  }, 
+
+  "FormChampsAction":{
+    "BREADCRUMB": {
+      "FIRST": "Module de gestion",
+      "SECOND": "À propos"
+    },
+    "COLUMNS" : [
+      {"header": "Titre"}, 
+      {"header" : "Sous titre"},
+      {"header": "Image"},
+      {"header" : "Titre image"},
+      {"header" : "Description"},
+      {"header" : "Crée le "},
+      {"header" : "Modifié le "}
+    ],
+    "BODY_TITLE": "Liste des À propos",
+    "faqList": "Liste des À propos",
+    "TITLE_MODAL":{
+      "STORE": "Ajouter un champs d'action",
+      "UPDATE": "Modification de champs d'action {libelle}"
+    },
+    "TITRE": {
+      "LIBELLE": "Titre",
+      "PLACEHOLDER": "Saisir le titre",
+      "IS_REQUIRED": true
+    },
+    "SOUS_TITRE": {
+      "LIBELLE": "Sous titre",
+      "PLACEHOLDER": "Saisir le sous titre",
+      "IS_REQUIRED": true
+    },
+    "FILE": {
+      "LIBELLE": "Fichier",
+      "PLACEHOLDER": "Saisir un fichier",
+      "IS_REQUIRED": true 
+    },
+    "TITRE_IMAGE": {
+      "LIBELLE": "Titre image",
+      "PLACEHOLDER": "Saisir le titre de l'image",
+      "IS_REQUIRED": true
+    },
+    "DESCRIPTION": {
+      "LIBELLE": "Description",
+      "PLACEHOLDER": "Saisir une description",
+      "IS_REQUIRED": false
+    },
+    "DELETE_CONFIRMATION": {
+      "title": "En êtes vous sûr ?",
+      "message": "Vous allez supprimer le champs d'action <u><strong>{{libelle}}</strong></u>",
+      "cancelButton": "Non",
+      "confirmButton": "Oui"
+    }
+  }, 
+
+  "FormServices":{
+    "BREADCRUMB": {
+      "FIRST": "Module de gestion",
+      "SECOND": "Services"
+    },
+    "COLUMNS" : [
+      {"header": "Code"},
+      {"header": "Titre"}, 
+      {"header": "Image"},
+      {"header" : "Description"},
+      {"header" : "Crée le "},
+      {"header" : "Modifié le "}
+    ],
+    "BODY_TITLE": "Liste des services",
+    "faqList": "Liste des FAQ",
+    "TITLE_MODAL":{
+      "STORE": "Ajouter un service",
+      "UPDATE": "Modification infos"
+    },
+    "CODE": {
+      "LIBELLE": "Code",
+      "PLACEHOLDER": "Saisir le code",
+      "IS_REQUIRED": true
+    },
+    "TITRE": {
+      "LIBELLE": "Titre",
+      "PLACEHOLDER": "Saisir le titre",
+      "IS_REQUIRED": true
+    },
+    "DESCRIPTION": {
+      "LIBELLE": "Description",
+      "PLACEHOLDER": "Saisir une description",
+      "IS_REQUIRED": false
+    },
+    "FILE": {
+      "LIBELLE": "Fichier",
+      "PLACEHOLDER": "Saisir un fichier",
+      "IS_REQUIRED": true 
+    },
+    "DELETE_CONFIRMATION": {
+      "title": "En êtes vous sûr ?",
+      "message": "Vous allez supprimer le service <u><strong>{{name}}</strong></u>",
+      "cancelButton": "Non",
+      "confirmButton": "Oui"
+    }
+    
+  }, 
+
+  "FormLogo":{
+    "BREADCRUMB": {
+      "FIRST": "Module de paramétrage",
+      "SECOND": "Logo"
+    },
+    "COLUMNS" : [
+      {"header": "Logo"},
+      {"header": "Description"}, 
+      {"header" : "Crée le "},
+      {"header" : "Modifié le "}
+    ],
+    "BODY_TITLE": "Liste des logos",
+    "faqList": "Liste des FAQ",
+    "TITLE_MODAL":{
+      "STORE": "Ajouter un logo",
+      "UPDATE": "Modification le logo"
+    },
+    "LOGO": {
+      "LIBELLE": "Logo",
+      "PLACEHOLDER": "Saisir le logo",
+      "IS_REQUIRED": true
+    },
+    "DESCRIPTION": {
+      "LIBELLE": "Description",
+      "PLACEHOLDER": "Saisir la description",
+      "IS_REQUIRED": true
+    },
+    "DELETE_CONFIRMATION": {
+      "title": "En êtes vous sûr ?",
+      "message": "Vous allez supprimer le logo <u><strong>{{name}}</strong></u>",
+      "cancelButton": "Non",
+      "confirmButton": "Oui"
+    }
+    
+  }, 
+
+  "FormNewsletter":{
+    "BREADCRUMB": {
+      "FIRST": "Module de paramétrage",
+      "SECOND": "Newsletter"
+    },
+    "COLUMNS" : [
+      {"header": "Email"},
+      {"header": "description"}, 
+      {"header" : "Crée le "},
+      {"header" : "Modifié le "}
+    ],
+    "BODY_TITLE": "Liste des newsletters",
+    "faqList": "Liste des FAQ",
+    "TITLE_MODAL":{
+      "STORE": "Ajouter une newsletter",
+      "UPDATE": "Modification la newsletter"
+    },
+    "EMAIL": {
+      "LIBELLE": "Email",
+      "PLACEHOLDER": "Saisir l'email",
+      "IS_REQUIRED": true
+    },
+    "DESCRIPTION": {
+      "LIBELLE": "Description",
+      "PLACEHOLDER": "Saisir la description",
+      "IS_REQUIRED": true
+    },
+    "DELETE_CONFIRMATION": {
+      "title": "En êtes vous sûr ?",
+      "message": "Vous allez supprimer la newsletter <u><strong>{{name}}</strong></u>",
+      "cancelButton": "Non",
+      "confirmButton": "Oui"
+    }
+    
+  }, 
+
+  "FormMessaging":{
+    "BREADCRUMB": {
+      "FIRST": "Module de paramétrage",
+      "SECOND": "Messaging"
+    },
+    "COLUMNS" : [
+      {"header": "Nom"},
+      {"header": "Prénoms"}, 
+      {"header": "Email"}, 
+      {"header": "Téléphone"}, 
+      {"header": "Message"}, 
+      {"header" : "Crée le "},
+      {"header" : "Modifié le "}
+    ],
+    "BODY_TITLE": "Liste des Messaging",
+    "faqList": "Liste des FAQ",
+    "TITLE_MODAL":{
+      "STORE": "Ajouter un Messaging",
+      "UPDATE": "Modification le Messaging"
+    },
+    "NOM": {
+      "LIBELLE": "Nom",
+      "PLACEHOLDER": "Saisir le nom",
+      "IS_REQUIRED": true
+    },
+    "PRENOMS": {
+      "LIBELLE": "Prénoms",
+      "PLACEHOLDER": "Saisir prénoms",
+      "IS_REQUIRED": true
+    },
+    "EMAIL": {
+      "LIBELLE": "Email",
+      "PLACEHOLDER": "Saisir l'email",
+      "IS_REQUIRED": true
+    },
+    "TELEPHONE": {
+      "LIBELLE": "Téléphone",
+      "PLACEHOLDER": "Saisir le numero de telephone",
+      "IS_REQUIRED": true
+    },
+    "MESSAGE": {
+      "LIBELLE": "Message",
+      "PLACEHOLDER": "Saisir un message",
+      "IS_REQUIRED": true
+    },
+    "DELETE_CONFIRMATION": {
+      "title": "En êtes vous sûr ?",
+      "message": "Vous allez supprimer le messaging <u><strong>{{name}}</strong></u>",
+      "cancelButton": "Non",
+      "confirmButton": "Oui"
+    }
+    
+  },
+
 
   "STATUT_MODAL": {
     

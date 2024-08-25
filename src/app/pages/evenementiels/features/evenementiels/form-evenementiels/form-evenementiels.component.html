@@ -1,0 +1,212 @@
+<app-breadcrumb [breadcrumb]="breadcrumbObject"></app-breadcrumb>
+
+<mat-card class="mb-25 imako-card">
+    <mat-card-header>
+        <h3 class="mb-0">{{ getTitleForm() | translate }}</h3>
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="spacer">
+                <button (click)="closeInterface()" mat-flat-button class="close-btn">
+                    <i class="ri-file-excel-2-fill"></i>
+                    {{ "GeneralStrings.LABEL_CLOSE" | translate }}
+                </button>
+            </div>
+        </div>
+    </mat-card-header>
+    <mat-card-content>
+
+        <div class="row mt-3">
+            <form [formGroup]="form" (ngSubmit)="onSubmitForm()">
+                <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ AJOUTER FORMS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+                <div *ngIf="view === 'ajouter'">
+                    <fieldset>
+                        <legend>
+                            <b>Informations d'identification</b>
+                        </legend>
+                        <div class="row">
+                            <div *ngFor="let input of FormEvenementiel" class="col-lg-{{input?.column}} my-2">
+                                <div class="form-group">
+                                    <label for="{{ input?.name }}">
+                                        <strong>{{ input?.label | translate }}</strong>
+                                        <span *ngIf="(input?.required | translate) === true"
+                                            class="text-danger">*</span>
+                                    </label>
+                                    <br />
+                                    <div
+                                        *ngIf="input?.type !== 'select' && input?.type !== 'file' && input?.type !== 'textarea' && input?.type !== 'edit'">
+                                        <input name="{{ input?.name }}" formControlName="{{ input?.name }}"
+                                            [placeholder]="input?.placeholder | translate" type="{{ input?.type }}"
+                                            class="input-control" />
+                                    </div>
+                                    <div *ngIf="input?.type === 'textarea'">
+                                        <textarea name="{{ input?.name }}" [rows]="input?.rows"
+                                            formControlName="{{ input?.name }}"
+                                            [placeholder]="input?.placeholder | translate"
+                                            class="input-control"></textarea>
+                                    </div>
+                                    <div *ngIf="input?.type === 'select'">
+                                        <p-dropdown [options]="this[input?.options]" [optionLabel]="input?.optionLabel"
+                                            [filter]="true" [filterBy]="input?.filterBy"
+                                            formControlName="{{ input?.name }}" [optionValue]="input?.optionValue"
+                                            [placeholder]="input?.placeholder | translate">
+                                        </p-dropdown>
+                                    </div>
+                                    <div *ngIf="input?.type === 'file'">
+                                        <div class="input_file col align-self-center p-0">
+                                            <label for="file" (click)="uploadFile.click()">
+                                                <img src="assets/images/picture.png" width="50" />
+                                                <span [hidden]="fileName"><b>Spécifiez l'image</b></span>
+                                                <span [hidden]="!fileName"><b>{{ fileName }}</b></span>
+                                            </label>
+                                            <input #uploadFile type="{{ input?.type }}" (change)="onChangeFile($event)"
+                                                accept=".jpg, .pnj, .jpeg" name="{{ input?.name }}" />
+                                        </div>
+                                    </div>
+                                    <div *ngIf="input?.type === 'edit'">
+                                        <p-editor formControlName="{{ input?.name }}" [style]="{ height: '200px' }"
+                                            [placeholder]="input?.placeholder | translate" [readonly]="false" />
+                                        <!-- <p-editor formControlName="{{ input?.name }}" [style]="{ height: '320px' }" /> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="text-end mt-3">
+                        <ng-container>
+                            <button type="submit" mat-flat-button class="imako ml-2" [disabled]="form.invalid">
+                                <i Class="ri-add-fill"></i>{{"GeneralStrings.LABEL_SAVE" | translate}}
+                            </button>
+                        </ng-container>
+                    </div>
+                </div>
+
+                <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ EDITER FORMS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+                <div *ngIf="view === 'editer'">
+                    <fieldset>
+                        <legend>
+                            <b>Informations d'identification</b>
+                        </legend>
+                        <div class="row">
+                            <div *ngFor="let input of FormEvenementiel" class="col-lg-{{input?.column}} my-2">
+                                <div class="form-group">
+                                    <label for="{{ input?.name }}">
+                                        <strong>{{ input?.label | translate }}</strong>
+                                        <span *ngIf="(input?.required | translate) === true"
+                                            class="text-danger">*</span>
+                                    </label>
+                                    <br />
+                                    <div
+                                        *ngIf="input?.type !== 'select' && input?.type !== 'file' && input?.type !== 'textarea' && input?.type !== 'edit'">
+                                        <input name="{{ input?.name }}" formControlName="{{ input?.name }}"
+                                            [placeholder]="input?.placeholder | translate" type="{{ input?.type }}"
+                                            class="input-control" />
+                                    </div>
+                                    <div *ngIf="input?.type === 'textarea'">
+                                        <textarea name="{{ input?.name }}" [rows]="input?.rows"
+                                            formControlName="{{ input?.name }}"
+                                            [placeholder]="input?.placeholder | translate"
+                                            class="input-control"></textarea>
+                                    </div>
+                                    <div *ngIf="input?.type === 'select'">
+                                        <p-dropdown [options]="this[input?.options]" [optionLabel]="input?.optionLabel"
+                                            [filter]="true" [filterBy]="input?.filterBy"
+                                            formControlName="{{ input?.name }}" [optionValue]="input?.optionValue"
+                                            [placeholder]="input?.placeholder | translate">
+                                        </p-dropdown>
+                                    </div>
+                                    <div *ngIf="input?.type === 'file'">
+                                        <div class="input_file col align-self-center p-0">
+                                            <label for="file" (click)="uploadFile.click()">
+                                                <img src="assets/images/picture.png" width="50" />
+                                                <span [hidden]="fileName"><b>Spécifiez l'image</b></span>
+                                                <span [hidden]="!fileName"><b>{{ fileName }}</b></span>
+                                            </label>
+                                            <input #uploadFile type="{{ input?.type }}" (change)="onChangeFile($event)"
+                                                accept=".jpg, .pnj, .jpeg" name="{{ input?.name }}" />
+                                        </div>
+                                    </div>
+                                    <div *ngIf="input?.type === 'edit'">
+                                        <p-editor formControlName="{{ input?.name }}" [style]="{ height: '200px' }"
+                                            [placeholder]="input?.placeholder | translate" [readonly]="false" />
+                                        <!-- <p-editor formControlName="{{ input?.name }}" [style]="{ height: '320px' }" /> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="text-end mt-3">
+                        <ng-container>
+                            <button type="submit" mat-flat-button class="imako ml-2" [disabled]="form.invalid">
+                                <i Class="ri-pencil-line"></i>{{"GeneralStrings.LABEL_EDIT" | translate}}
+                            </button>
+                        </ng-container>
+                    </div>
+                </div>
+                <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ DETAILS FORMS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+                <div *ngIf="view === 'détails'">
+
+                    <fieldset>
+                        <legend>
+                            <b>Informations d'identification</b>
+                        </legend>
+                        <div class="row">
+                            <div *ngFor="let input of FormEvenementiel"
+                                class="col-lg-{{input?.column}} my-2">
+                                <div class="form-group">
+                                    <label for="{{ input?.name }}">
+                                        <strong>{{ input?.label | translate }}</strong>
+                                        <span *ngIf="(input?.required | translate) === true"
+                                            class="text-danger">*</span>
+                                    </label>
+                                    <br />
+                                    <div
+                                        *ngIf="input?.type !== 'select' && input?.type !== 'file' && input?.type !== 'textarea' && input?.type !== 'edit'">
+                                        <input name="{{ input?.name }}" formControlName="{{ input?.name }}"
+                                            [placeholder]="input?.placeholder | translate" type="{{ input?.type }}"
+                                            class="input-control" />
+                                    </div>
+                                    <div *ngIf="input?.type === 'textarea'">
+                                        <textarea name="{{ input?.name }}" [rows]="input?.rows"
+                                            formControlName="{{ input?.name }}"
+                                            [placeholder]="input?.placeholder | translate"
+                                            class="input-control"></textarea>
+                                    </div>
+                                    <div *ngIf="input?.type === 'select'">
+                                        <p-dropdown [options]="this[input?.options]" [optionLabel]="input?.optionLabel"
+                                            [filter]="true" [filterBy]="input?.filterBy"
+                                            formControlName="{{ input?.name }}" [optionValue]="input?.optionValue"
+                                            [placeholder]="input?.placeholder | translate">
+                                        </p-dropdown>
+                                    </div>
+                                    <div *ngIf="input?.type === 'file'">
+                                        <div class="input_file col align-self-center p-0">
+                                            <label for="file" (click)="uploadFile.click()">
+                                                <img src="assets/images/picture.png" width="50" />
+                                                <span [hidden]="fileName"><b>Spécifiez l'image</b></span>
+                                                <span [hidden]="!fileName"><b>{{ fileName }}</b></span>
+                                            </label>
+                                            <input #uploadFile type="{{ input?.type }}" (change)="onChangeFile($event)"
+                                                accept=".jpg, .pnj, .jpeg" name="{{ input?.name }}" />
+                                        </div>
+                                    </div>
+                                    <div *ngIf="input?.type === 'edit'">
+                                        <p-editor formControlName="{{ input?.name }}" [style]="{ height: '200px' }"
+                                            [placeholder]="input?.placeholder | translate" [readonly]="false" />
+                                        <!-- <p-editor formControlName="{{ input?.name }}" [style]="{ height: '320px' }" /> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </form>
+
+        </div>
+
+        <ng-template #skeletonLoader>
+            <ngx-skeleton-loader count="10"></ngx-skeleton-loader>
+        </ng-template>
+
+    </mat-card-content>
+</mat-card>

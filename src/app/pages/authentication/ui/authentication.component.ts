@@ -17,7 +17,7 @@ export class AuthenticationComponent {
       this.currentRoute = url[0].path;
     });
     this.route.data.subscribe((data) => {
-      this.titleService.setTitle(data.title);
+      this.titleService.setTitle(data?.["title"]);
     });
   }
 }

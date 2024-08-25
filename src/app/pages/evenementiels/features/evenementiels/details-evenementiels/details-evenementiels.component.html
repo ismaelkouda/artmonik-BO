@@ -1,0 +1,67 @@
+<!-- <app-breadcrumb [breadcrumb]="breadcrumbObject"></app-breadcrumb>
+
+<mat-card class="mb-25 imako-card">
+    <mat-card-header>
+        <h3 class="mb-0">{{ getTitlePage() }}</h3>
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="spacer">
+                <button (click)="closeInterface()" mat-flat-button class="close-btn">
+                    <i class="ri-file-excel-2-fill"></i>
+                    {{ "GeneralStrings.LABEL_CLOSE" | translate }}
+                </button>
+            </div>
+        </div>
+    </mat-card-header>
+    <mat-card-content>
+
+        <ng-container>
+
+            <p-tabView (onChange)="indexTabPanelActive = ($event.index)">
+
+                <p-tabPanel header="Identification" leftIcon="pi pi-list">
+                    <ng-container *ngIf="indexTabPanelActive === 0">
+                        <app-reusable-form-evenementiels [view]="view" [page]="page" [id]="id" [filter]="filter"
+                            [evenementielSelected]="evenementielSelected">
+                        </app-reusable-form-evenementiels>
+                    </ng-container>
+                </p-tabPanel>
+
+                <p-tabPanel header="Mes Réseaux sociaux" leftIcon="pi pi-globe">
+                    <ng-container *ngIf="indexTabPanelActive === 1">
+
+                    </ng-container>
+                </p-tabPanel>
+
+                <p-tabPanel header="Mes Vidéos" leftIcon="pi pi-video">
+                    <ng-container *ngIf="indexTabPanelActive === 2">
+
+                    </ng-container>
+                </p-tabPanel>
+
+                <p-tabPanel header="Mes liens d'écoute" leftIcon="pi pi-link">
+                    <ng-container *ngIf="indexTabPanelActive === 3">
+
+                    </ng-container>
+                </p-tabPanel>
+
+                <p-tabPanel header="Mes liens articles" leftIcon="pi pi-info">
+                    <ng-container *ngIf="indexTabPanelActive === 4">
+
+                    </ng-container>
+                </p-tabPanel>
+
+            </p-tabView>
+            
+            <app-reusable-form-evenementiels [view]="view" [page]="page" [id]="id" [filter]="filter"
+                [evenementielSelected]="evenementielSelected">
+            </app-reusable-form-evenementiels>
+
+        </ng-container>
+
+
+
+        <ng-template #skeletonLoader>
+            <ngx-skeleton-loader count="10"></ngx-skeleton-loader>
+        </ng-template>
+    </mat-card-content>
+</mat-card> -->

@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { NotFoundComponent } from "./components/common/not-found/ui/not-found.component";
 import { ContentComponent } from "./shared/component/layout/content/content.component";
-import { content } from "./shared/routes/routes";
+import { content, DASHBOARD } from "./shared/routes/routes";
 import { FullComponent } from "./shared/component/layout/full/full.component";
 import { full } from "./shared/routes/full.routes";
 import { NotNetworkComponent } from "./components/common/not-network/ui/not-network.component";
@@ -37,12 +37,12 @@ const routes: Routes = [
     component: ContentComponent,
     children: content,
   },
-  { path: "**", redirectTo: "" },
-  // {
-  //   path: "",
-  //   component: FullComponent,
-  //   children: full,
-  // },
+  { path: "**", redirectTo: AUTH },
+  {
+    path: "",
+    component: FullComponent,
+    children: full,
+  },
   // { path: "**", component: NotFoundComponent }, // This line will remain down from the whole pages component list
 ];
 

@@ -18,10 +18,7 @@ export async function handleSignIn(
       notyfService.showToast("success", res?.message, "toast-success");
       storageService.saveData("sessiontoken", res.data.access_token);
       storageService.saveData("userSession", JSON.stringify(res.data.user));
-      /** seulement dans le cas de l'authentification, on passe router comme 3e parametre afin de naviguer les dashboard */
-      if (router) {
-        router.navigateByUrl(`/${DASHBOARD}`);
-      }
+      router.navigateByUrl(`/${DASHBOARD}`);
     } else {
       console.error('Erreur dans la réponse API:', res);
     }

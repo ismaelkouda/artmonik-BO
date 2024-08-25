@@ -1,0 +1,68 @@
+<ngx-loading [show]="loading" [config]="{
+    animationType: ngxLoadingAnimationTypes.circle,
+    primaryColour: primaryColour,
+    secondaryColour: secondaryColour,
+    backdropBorderRadius: '5px',
+  }">
+</ngx-loading>
+
+<div class="create-dialog-box scrollable-dialog">
+  <div class="title d-flex align-items-center justify-content-space-between">
+    <h4 class="mb-0">
+      {{
+      data?.type === "add"
+      ? ("FormLogo.TITLE_MODAL.STORE" | translate)
+      : ("FormLogo.TITLE_MODAL.UPDATE" | translate)
+      }}
+    </h4>
+    <button class="close-btn bg-transparent p-0 border-none" (click)="closeModal()">
+      <i class="flaticon-close"></i>
+    </button>
+  </div>
+  <form [formGroup]="form" (ngSubmit)="onSubmitForm()">
+    <div class="row">
+      <div *ngFor="let input of formInputs" class="col-md-{{ input?.column }}">
+        <div class="form-group">
+          <label for="{{ input?.name }}">
+            <strong>{{ input?.label | translate }}</strong>
+            <span *ngIf="input?.required" class="text-danger">*</span>
+          </label>
+          <br />
+          <ng-container *ngIf="input?.type !== 'select'; else selectTemplate">
+            <input name="{{ input?.name }}" formControlName="{{ input?.name }}"
+              [placeholder]="input?.placeholder | translate" type="{{ input?.type }}" class="input-control" />
+          </ng-container>
+          <ng-template #selectTemplate>
+            <!-- <p-dropdown [options]="this[input?.options]" [optionLabel]="input?.optionLabel" [filter]="true"
+              [filterBy]="input?.filterBy" formControlName="{{ input?.name }}" [optionValue]="input?.optionValue"
+              [placeholder]="input?.placeholder | translate">
+              <ng-template let-data pTemplate="item">
+                <div class="profile-item">
+                  <div>{{ data.libelle }}</div>
+                </div>
+              </ng-template>
+            </p-dropdown> -->
+          </ng-template>
+        </div>
+      </div>
+    </div>
+    <div class="text-end">
+      <button type="button" mat-flat-button class="gray" (click)="closeModal()">
+        <i class="ri-close-fill"></i>
+        {{ "GeneralStrings.LABEL_CLOSE" | translate }}
+      </button>
+      <ng-container *ngIf="data.type === 'add'; else editButton;">
+        <button type="submit" mat-flat-button class="imako ml-2" [disabled]="!form.valid">
+          <i Class="ri-add-fill"></i>
+          {{"GeneralStrings.LABEL_SAVE" | translate}}
+        </button>
+      </ng-container>
+      <ng-template #editButton>
+        <button type="submit" mat-flat-button class="imako ml-2" [disabled]="!form.valid">
+          <i Class="ri-pencil-line"></i>
+          {{"GeneralStrings.LABEL_EDIT" | translate}}
+        </button>
+      </ng-template>
+    </div>
+  </form>
+</div>

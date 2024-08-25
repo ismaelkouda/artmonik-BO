@@ -1,0 +1,137 @@
+.input-control {
+  outline: 0;
+  width: 100%;
+  height: 55px;
+  display: block;
+  box-shadow: unset;
+  border-radius: 10px;
+  color: var(--blackColor);
+  font-size: var(--fontSize);
+  border: 1px solid #b1b5c3;
+  transition: var(--transition);
+  padding: {
+    left: 20px;
+    right: 20px;
+  }
+  &::placeholder {
+    color: #a9a9c8;
+    transition: var(--transition);
+  }
+  &:focus {
+    border-color: var(--heraBlueColor);
+
+    &::placeholder {
+      color: transparent;
+    }
+  }
+  &[type="file"] {
+    line-height: 55px;
+  }
+}
+
+.spacer {
+  margin-right: 10px;
+}
+
+.full-width-dropdown {
+  width: 100% !important;
+}
+
+:host ::ng-deep .p-dropdown {
+  width: 100% !important;
+}
+
+.rounded {
+  font-family: var(--fontFamily) !important;
+  font-size: var(--fontSize) !important;
+  border-radius: 50% !important;
+}
+
+:host ::ng-deep .p-paginator {
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: end;
+
+  button {
+    width: 2rem;
+    border-radius: 0;
+  }
+
+  span {
+    background: #fff;
+    color: #6c757d;
+    border: 0 solid #e9ecef;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+  }
+}
+fieldset {
+  border: 1px solid #000;
+  border-radius: 5px;
+  margin-top: 1.8rem;
+}
+
+legend {
+background-color: #000;
+color: #fff;
+font-size: 16px;
+padding: 9px 6px;
+border-radius: 5px;
+position: relative;
+margin-top: -2rem;
+width: 16rem !important;
+min-width: 12rem !important;
+}
+
+textarea {
+width: 93% !important;
+}
+
+.container-button-telecharger {
+// border: 2px solid #d0d3da;
+border-radius: 5%;
+// height: 70%;
+}
+
+.container-form-masse {
+padding-left: 10px;
+}
+.title-file {
+padding: 0;
+}
+.input_file {
+align-items: center;
+position: relative;
+display: flex;
+overflow: hidden;
+border: solid .5px rgba(0, 0, 0, .5);
+padding: 0 !important;
+border-radius: 2px;
+}
+.width-40 {
+width: 40%;
+}
+input {
+width: 1px;
+height: 1px;
+z-index: 1;
+}
+label[for="file"] {
+position: static;
+z-index: 2;
+background-color: #e1e1e1;
+margin-bottom: 0 !important;
+cursor: pointer;
+width: 100%;
+
+span {
+    font-style: italic;
+    margin-left: 10px;
+}
+}
+
+textarea {
+resize: none !important;
+}
+

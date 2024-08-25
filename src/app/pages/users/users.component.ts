@@ -146,7 +146,7 @@ export class UsersComponent implements OnInit, OnDestroy, AfterViewInit {
   public async loadAllUsers(): Promise<void> {
     this.response = await handleGetAllUsers(
       () => this.usersService.getAllUsers(),
-      this.notyfService,
+      this.notyfService
     );
     this.spinner = false;
     this.listUser = this.response?.data;

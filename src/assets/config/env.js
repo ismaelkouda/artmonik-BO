@@ -3,16 +3,16 @@
 
     // PROD Config
     window.__env.prod = {
-        apiUrl: 'https://eyd-conf.com/backend/api/v1/',
-        fileUrl: 'https://eyd-conf.com/backend/',
+        apiUrl: 'https://artmonik.net/backend/api/v1/',
+        fileUrl: 'https://artmonik.net/backend/',
         environmentDeployment: 'PROD',
         enableDebug: false
     };
 
     // DEV Config
     window.__env.dev = {
-        apiUrl: 'https://eyd-conf.com/backend/api/v1/',
-        fileUrl: 'https://eyd-conf.com/backend/',
+        apiUrl: 'https://artmonik.net/backend/api/v1/',
+        fileUrl: 'https://artmonik.net/backend/',
         environmentDeployment: 'DEV',
         enableDebug: true
     };

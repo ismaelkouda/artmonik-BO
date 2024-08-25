@@ -1,0 +1,91 @@
+<ngx-loading [show]="loading" [config]="{
+    animationType: ngxLoadingAnimationTypes.circle,
+    primaryColour: primaryColour,
+    secondaryColour: secondaryColour,
+    backdropBorderRadius: '5px',
+  }">
+</ngx-loading>
+
+<div class="create-dialog-box scrollable-dialog">
+  <div class="title d-flex align-items-center justify-content-space-between">
+    <h4 class="mb-0">
+      {{
+      data?.type === "add"
+      ? ("FormSlides.TITLE_MODAL.STORE" | translate)
+      : ("FormSlides.TITLE_MODAL.UPDATE" | translate)
+      }}
+    </h4>
+    <button class="close-btn bg-transparent p-0 border-none" (click)="closeModal()">
+      <i class="flaticon-close"></i>
+    </button>
+  </div>
+  <form [formGroup]="form" (ngSubmit)="onSubmitForm()">
+    <div class="row">
+      <div *ngFor="let input of formInputs" class="col-md-{{ input?.column }}">
+        <div class="form-group">
+          <label for="{{ input?.name }}">
+            <strong>{{ input?.label | translate }}</strong>
+            <span *ngIf="(input?.required | translate) === true" class="text-danger">*</span>
+          </label>
+          <br />
+          <div *ngIf="input?.type !== 'select' && input?.type !== 'file' && input?.type !== 'textarea'">
+            <input name="{{ input?.name }}" formControlName="{{ input?.name }}"
+              [placeholder]="input?.placeholder | translate" type="{{ input?.type }}" class="input-control" />
+          </div>
+          <div *ngIf="input?.type === 'textarea'">
+            <textarea name="{{ input?.name }}" [rows]="input?.rows" formControlName="{{ input?.name }}"
+              [placeholder]="input?.placeholder | translate" class="input-control"></textarea>
+          </div>
+          <div *ngIf="input?.type === 'file'">
+            <div class="d-flex align-items-center gap-2 justify-content-center container-button-telecharger py-1">
+              <div *ngIf="data?.type === 'add' || data?.type === 'edit'" class="input_file h-70 width-45">
+                <label for="file" (click)="uploadFile.click()">
+                  <img src="assets/images/picture.png" width="50" />
+                  <span [hidden]="fileName"><b>Spécifiez l'image</b></span>
+                  <span [hidden]="!fileName"><b>{{ fileName }}</b></span>
+                </label>
+                <input #uploadFile type="{{ input?.type }}" (change)="onExcelFileChange($event)"
+                  accept=".jpg, .pnj, .jpeg" name="{{ input?.name }}" />
+              </div>
+
+              <div *ngIf="data?.type === 'edit' || data?.type === 'détails'" class="width-45">
+                <button pButton pRipple label="Voir l'image chargée" icon="pi pi-eye" class="p-button-success"
+                  (click)="onSeeImage()">
+                </button>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="input?.type === 'select'">
+            <!-- <p-dropdown [options]="this[input?.options]" [optionLabel]="input?.optionLabel" [filter]="true"
+              [filterBy]="input?.filterBy" formControlName="{{ input?.name }}" [optionValue]="input?.optionValue"
+              [placeholder]="input?.placeholder | translate">
+              <ng-template let-data pTemplate="item">
+                <div class="profile-item">
+                  <div>{{ data.libelle }}</div>
+                </div>
+              </ng-template>
+            </p-dropdown> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-end">
+      <button type="button" mat-flat-button class="gray" (click)="closeModal()">
+        <i class="ri-close-fill"></i>
+        {{ "GeneralStrings.LABEL_CLOSE" | translate }}
+      </button>
+      <ng-container *ngIf="data.type === 'add'; else editButton;">
+        <button type="submit" mat-flat-button class="imako ml-2" [disabled]="!form.valid">
+          <i Class="ri-add-fill"></i>
+          {{"GeneralStrings.LABEL_SAVE" | translate}}
+        </button>
+      </ng-container>
+      <ng-template #editButton>
+        <button type="submit" mat-flat-button class="imako ml-2" [disabled]="!form.valid">
+          <i Class="ri-pencil-line"></i>
+          {{"GeneralStrings.LABEL_EDIT" | translate}}
+        </button>
+      </ng-template>
+    </div>
+  </form>
+</div>

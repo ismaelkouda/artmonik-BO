@@ -1,0 +1,678 @@
+<div class="row mt-3">
+    <form [formGroup]="form" (ngSubmit)="onSubmitForm()">
+        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ AJOUTER FORMS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+        <div *ngIf="view === 'ajouter'">
+            <fieldset>
+                <legend>
+                    <b>Informations d'identification</b>
+                </legend>
+                <div class="row">
+                    <div *ngFor="let input of FieldsetInfosIdentificationFormInputs1" class="col-lg my-2">
+                        <div class="form-group">
+                            <label for="{{ input?.name }}">
+                                <strong>{{ input?.label | translate }}</strong>
+                                <span *ngIf="(input?.required | translate) === true" class="text-danger">*</span>
+                            </label>
+                            <br />
+                            <div
+                                *ngIf="input?.type !== 'select' && input?.type !== 'file' && input?.type !== 'textarea'">
+                                <input name="{{ input?.name }}" formControlName="{{ input?.name }}"
+                                    [placeholder]="input?.placeholder | translate" type="{{ input?.type }}"
+                                    class="input-control" />
+                            </div>
+                            <div *ngIf="input?.type === 'select'">
+                                <p-dropdown [options]="this[input?.options]" [optionLabel]="input?.optionLabel"
+                                    [filter]="true" [filterBy]="input?.filterBy" formControlName="{{ input?.name }}"
+                                    [optionValue]="input?.optionValue" [placeholder]="input?.placeholder | translate">
+                                </p-dropdown>
+                            </div>
+                            <div *ngIf="input?.type === 'file'">
+                                <div class="d-flex no-wrap text-center container-button-telecharger pr-2 rounded">
+                                    <div class="input_file align-self-center" [style]="{'width': '250px'}">
+                                        <label for="file" (click)="uploadFile.click()">
+                                            <img src="assets/images/picture.png" width="50" />
+                                            <span [hidden]="fileName"><b>Spécifiez l'image</b></span>
+                                            <span [hidden]="!fileName"><b>{{ fileName }}</b></span>
+                                        </label>
+                                        <input #uploadFile type="{{ input?.type }}" (change)="onChangeFile($event)"
+                                            accept=".jpg, .pnj, .jpeg" name="{{ input?.name }}" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div *ngFor="let input of FieldsetInfosIdentificationFormInputs2"
+                        class="col-lg-{{input?.column}} my-2">
+                        <div class="form-group">
+                            <label for="{{ input?.name }}">
+                                <strong>{{ input?.label | translate }}</strong>
+                                <span *ngIf="(input?.required | translate) === true" class="text-danger">*</span>
+                            </label>
+                            <br />
+                            <div
+                                *ngIf="input?.type !== 'select' && input?.type !== 'file' && input?.type !== 'textarea' && input?.type !== 'edit'">
+                                <input name="{{ input?.name }}" formControlName="{{ input?.name }}"
+                                    [placeholder]="input?.placeholder | translate" type="{{ input?.type }}"
+                                    class="input-control" />
+                            </div>
+                            <div *ngIf="input?.type === 'textarea'">
+                                <textarea name="{{ input?.name }}" [rows]="input?.rows"
+                                    formControlName="{{ input?.name }}" [placeholder]="input?.placeholder | translate"
+                                    class="input-control"></textarea>
+                            </div>
+                            <div *ngIf="input?.type === 'select'">
+                                <p-dropdown [options]="this[input?.options]" [optionLabel]="input?.optionLabel"
+                                    [filter]="true" [filterBy]="input?.filterBy" formControlName="{{ input?.name }}"
+                                    [optionValue]="input?.optionValue" [placeholder]="input?.placeholder | translate">
+                                </p-dropdown>
+                            </div>
+                            <div *ngIf="input?.type === 'file'">
+                                <div class="input_file col align-self-center p-0">
+                                    <label for="file" (click)="uploadFile.click()">
+                                        <img src="assets/images/picture.png" width="50" />
+                                        <span [hidden]="fileName"><b>Spécifiez l'image</b></span>
+                                        <span [hidden]="!fileName"><b>{{ fileName }}</b></span>
+                                    </label>
+                                    <input #uploadFile type="{{ input?.type }}" (change)="onChangeFile($event)"
+                                        accept=".jpg, .pnj, .jpeg" name="{{ input?.name }}" />
+                                </div>
+                            </div>
+                            <div *ngIf="input?.type === 'edit'">
+                                <p-editor formControlName="{{ input?.name }}" [style]="{ height: '200px' }"
+                                    [placeholder]="input?.placeholder | translate" [readonly]="false" />
+                                <!-- <p-editor formControlName="{{ input?.name }}" [style]="{ height: '320px' }" /> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>
+                    <b>Informations réseaux sociaux</b>
+                </legend>
+                <div class="row">
+                    <div *ngFor="let input of FieldsetInfosReseauxSociauxFormInputs"
+                        class="col-lg-{{ input?.column }} my-2">
+                        <div class="form-group">
+                            <label for="{{ input?.name }}">
+                                <strong>{{ input?.label | translate }}</strong>
+                                <span *ngIf="(input?.required | translate) === true" class="text-danger">*</span>
+                            </label>
+                            <br />
+                            <div *ngIf="input?.type !== 'select' && input?.type !== 'file'">
+                                <input name="{{ input?.name }}" formControlName="{{ input?.name }}"
+                                    [placeholder]="input?.placeholder | translate" type="{{ input?.type }}"
+                                    class="input-control" />
+                            </div>
+                            <div *ngIf="input?.type === 'select'">
+                                <p-dropdown [options]="this[input?.options]" [optionLabel]="input?.optionLabel"
+                                    [filter]="true" [filterBy]="input?.filterBy" formControlName="{{ input?.name }}"
+                                    [optionValue]="input?.optionValue" [placeholder]="input?.placeholder | translate">
+                                </p-dropdown>
+                            </div>
+                            <div *ngIf="input?.type === 'file'">
+                                <div
+                                    class="d-flex align-items-center gap-2 justify-content-center container-button-telecharger py-1">
+                                    <div class="input_file h-70 width-40">
+                                        <label for="file" (click)="uploadFile.click()">
+                                            <img src="assets/images/picture.png" width="50" />
+                                            <span [hidden]="fileName"><b>Spécifiez l'image</b></span>
+                                            <span [hidden]="!fileName"><b>{{ fileName }}</b></span>
+                                        </label>
+                                        <input #uploadFile type="{{ input?.type }}" (change)="onChangeFile($event)"
+                                            accept=".jpg, .pnj, .jpeg" name="{{ input?.name }}" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>
+                    <b>Informations lien de vidéos</b>
+                </legend>
+                <div formArrayName="videos_link">
+                    <div *ngFor="let control of videosLink.controls; let i = index" class="row my-2">
+                        <div class="col-lg-12 my-2">
+                            <div class="form-group">
+                                <label for="video-{{ i }}">
+                                    <strong>{{ FieldsetInfosLinksVideosFormInputs[0]?.label | translate }} {{ i + 1
+                                        }}</strong>
+                                </label>
+                                <div class="d-flex gap-2">
+                                    <textarea id="video-{{ i }}" [formControlName]="i" class="input-control" rows="4"
+                                        [placeholder]="FieldsetInfosLinksVideosFormInputs[0]?.placeholder | translate"></textarea>
+                                    <button type="button" *ngIf="videosLink.length > 1" (click)="removeVideoLink(i)"
+                                        class="btn btn-danger mt-2">Supprimer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" (click)="addVideoLink()" class="btn btn-primary">Ajouter un autre lien
+                    vidéo</button>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>
+                    <b>Informations d'écoute</b>
+                </legend>
+                <div class="row">
+                    <div *ngFor="let input of FieldsetInfosLiensEcouteFormInputs" class="col-lg my-2">
+                        <div class="form-group">
+                            <label for="{{ input?.name }}">
+                                <strong>{{ input?.label | translate }}</strong>
+                                <span *ngIf="(input?.required | translate) === true" class="text-danger">*</span>
+                            </label>
+                            <br />
+                            <div *ngIf="input?.type !== 'select' && input?.type !== 'file'">
+                                <input name="{{ input?.name }}" formControlName="{{ input?.name }}"
+                                    [placeholder]="input?.placeholder | translate" type="{{ input?.type }}"
+                                    class="input-control" />
+                            </div>
+                            <div *ngIf="input?.type === 'select'">
+                                <p-dropdown [options]="this[input?.options]" [optionLabel]="input?.optionLabel"
+                                    [filter]="true" [filterBy]="input?.filterBy" formControlName="{{ input?.name }}"
+                                    [optionValue]="input?.optionValue" [placeholder]="input?.placeholder | translate">
+                                </p-dropdown>
+                            </div>
+                            <div *ngIf="input?.type === 'file'">
+                                <div
+                                    class="d-flex align-items-center gap-2 justify-content-center container-button-telecharger py-1">
+                                    <div class="input_file h-70 width-40">
+                                        <label for="file" (click)="uploadFile.click()">
+                                            <img src="assets/images/picture.png" width="50" />
+                                            <span [hidden]="fileName"><b>Spécifiez l'image</b></span>
+                                            <span [hidden]="!fileName"><b>{{ fileName }}</b></span>
+                                        </label>
+                                        <input #uploadFile type="{{ input?.type }}" (change)="onChangeFile($event)"
+                                            accept=".jpg, .pnj, .jpeg" name="{{ input?.name }}" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+            <div class="text-end mt-3">
+                <ng-container>
+                    <button type="submit" mat-flat-button class="imako ml-2" [disabled]="form.invalid">
+                        <i Class="ri-add-fill"></i>{{"GeneralStrings.LABEL_SAVE" | translate}}
+                    </button>
+                </ng-container>
+            </div>
+        </div>
+
+        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ EDITER FORMS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+        <div *ngIf="view === 'editer'">
+            <fieldset>
+                <legend>
+                    <b>Informations d'identification</b>
+                </legend>
+                <div class="row">
+                    <div *ngFor="let input of FieldsetInfosIdentificationFormInputs1" class="col-lg my-2">
+                        <div class="form-group">
+                            <label for="{{ input?.name }}">
+                                <strong>{{ input?.label | translate }}</strong>
+                                <span *ngIf="(input?.required | translate) === true" class="text-danger">*</span>
+                            </label>
+                            <br />
+                            <div
+                                *ngIf="input?.type !== 'select' && input?.type !== 'file' && input?.type !== 'textarea'">
+                                <input name="{{ input?.name }}" formControlName="{{ input?.name }}"
+                                    [placeholder]="input?.placeholder | translate" type="{{ input?.type }}"
+                                    class="input-control" />
+                            </div>
+                            <div *ngIf="input?.type === 'select'">
+                                <p-dropdown [options]="this[input?.options]" [optionLabel]="input?.optionLabel"
+                                    [filter]="true" [filterBy]="input?.filterBy" formControlName="{{ input?.name }}"
+                                    [optionValue]="input?.optionValue" [placeholder]="input?.placeholder | translate">
+                                </p-dropdown>
+                            </div>
+                            <div *ngIf="input?.type === 'file'">
+                                <div class="d-flex no-wrap text-center container-button-telecharger pr-2 rounded">
+                                    <div class="input_file align-self-center" [style]="{'width': '250px'}">
+                                        <label for="file" (click)="uploadFile.click()">
+                                            <img src="assets/images/picture.png" width="50" />
+                                            <span [hidden]="fileName"><b>Spécifiez l'image</b></span>
+                                            <span [hidden]="!fileName"><b>{{ fileName }}</b></span>
+                                        </label>
+                                        <input #uploadFile type="{{ input?.type }}" (change)="onChangeFile($event)"
+                                            accept=".jpg, .pnj, .jpeg" name="{{ input?.name }}" />
+                                    </div>
+
+                                    <div [style]="{'width': '200px'}">
+                                        <button pButton pRipple label="Voir l'image" icon="pi pi-eye"
+                                            class="p-button-success" (click)="onSeeImage()">
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div *ngFor="let input of FieldsetInfosIdentificationFormInputs2"
+                        class="col-lg-{{input?.column}} my-2">
+                        <div class="form-group">
+                            <label for="{{ input?.name }}">
+                                <strong>{{ input?.label | translate }}</strong>
+                                <span *ngIf="(input?.required | translate) === true" class="text-danger">*</span>
+                            </label>
+                            <br />
+                            <div
+                                *ngIf="input?.type !== 'select' && input?.type !== 'file' && input?.type !== 'textarea' && input?.type !== 'edit'">
+                                <input name="{{ input?.name }}" formControlName="{{ input?.name }}"
+                                    [placeholder]="input?.placeholder | translate" type="{{ input?.type }}"
+                                    class="input-control" />
+                            </div>
+                            <div *ngIf="input?.type === 'textarea'">
+                                <textarea name="{{ input?.name }}" [rows]="input?.rows"
+                                    formControlName="{{ input?.name }}" [placeholder]="input?.placeholder | translate"
+                                    class="input-control"></textarea>
+                            </div>
+                            <div *ngIf="input?.type === 'select'">
+                                <p-dropdown [options]="this[input?.options]" [optionLabel]="input?.optionLabel"
+                                    [filter]="true" [filterBy]="input?.filterBy" formControlName="{{ input?.name }}"
+                                    [optionValue]="input?.optionValue" [placeholder]="input?.placeholder | translate">
+                                </p-dropdown>
+                            </div>
+                            <div *ngIf="input?.type === 'file'">
+                                <div class="input_file col align-self-center p-0">
+                                    <label for="file" (click)="uploadFile.click()">
+                                        <img src="assets/images/picture.png" width="50" />
+                                        <span [hidden]="fileName"><b>Spécifiez l'image</b></span>
+                                        <span [hidden]="!fileName"><b>{{ fileName }}</b></span>
+                                    </label>
+                                    <input #uploadFile type="{{ input?.type }}" (change)="onChangeFile($event)"
+                                        accept=".jpg, .pnj, .jpeg" name="{{ input?.name }}" />
+                                </div>
+
+                                <div class="width-40">
+                                    <button pButton pRipple label="Voir l'image" icon="pi pi-eye"
+                                        class="p-button-success" (click)="onSeeImage()">
+                                    </button>
+                                </div>
+                            </div>
+                            <div *ngIf="input?.type === 'edit'">
+                                <p-editor formControlName="{{ input?.name }}" [style]="{ height: '200px' }"
+                                    [placeholder]="input?.placeholder | translate" [readonly]="false" />
+                                <!-- <p-editor formControlName="{{ input?.name }}" [style]="{ height: '320px' }" /> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>
+                    <b>Informations réseaux sociaux</b>
+                </legend>
+                <div class="row">
+                    <div *ngFor="let input of FieldsetInfosReseauxSociauxFormInputs"
+                        class="col-lg-{{ input?.column }} my-2">
+                        <div class="form-group">
+                            <label for="{{ input?.name }}">
+                                <strong>{{ input?.label | translate }}</strong>
+                                <span *ngIf="(input?.required | translate) === true" class="text-danger">*</span>
+                            </label>
+                            <br />
+                            <div *ngIf="input?.type !== 'select' && input?.type !== 'file'">
+                                <input name="{{ input?.name }}" formControlName="{{ input?.name }}"
+                                    [placeholder]="input?.placeholder | translate" type="{{ input?.type }}"
+                                    class="input-control" />
+                            </div>
+                            <div *ngIf="input?.type === 'select'">
+                                <p-dropdown [options]="this[input?.options]" [optionLabel]="input?.optionLabel"
+                                    [filter]="true" [filterBy]="input?.filterBy" formControlName="{{ input?.name }}"
+                                    [optionValue]="input?.optionValue" [placeholder]="input?.placeholder | translate">
+                                </p-dropdown>
+                            </div>
+                            <div *ngIf="input?.type === 'file'">
+                                <div
+                                    class="d-flex align-items-center gap-2 justify-content-center container-button-telecharger py-1">
+                                    <div class="input_file h-70 width-40">
+                                        <label for="file" (click)="uploadFile.click()">
+                                            <img src="assets/images/picture.png" width="50" />
+                                            <span [hidden]="fileName"><b>Spécifiez l'image</b></span>
+                                            <span [hidden]="!fileName"><b>{{ fileName }}</b></span>
+                                        </label>
+                                        <input #uploadFile type="{{ input?.type }}" (change)="onChangeFile($event)"
+                                            accept=".jpg, .pnj, .jpeg" name="{{ input?.name }}" />
+                                    </div>
+
+                                    <div class="width-40">
+                                        <button pButton pRipple label="Voir l'image" icon="pi pi-eye"
+                                            class="p-button-success" (click)="onSeeImage()">
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>
+                    <b>Informations lien de vidéos</b>
+                </legend>
+                <div formArrayName="videos_link">
+                    <div *ngFor="let control of videosLink.controls; let i = index" class="row my-2">
+                        <div class="col-lg-12 my-2">
+                            <div class="form-group">
+                                <label for="video-{{ i }}">
+                                    <strong>{{ FieldsetInfosLinksVideosFormInputs[0]?.label | translate }} {{ i + 1
+                                        }}</strong>
+                                </label>
+                                <div class="d-flex gap-2">
+                                    <textarea id="video-{{ i }}" [formControlName]="i" class="input-control" rows="4"
+                                        [placeholder]="FieldsetInfosLinksVideosFormInputs[0]?.placeholder | translate"></textarea>
+                                    <button type="button" *ngIf="videosLink.length > 1" (click)="removeVideoLink(i)"
+                                        class="btn btn-danger mt-2">Supprimer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" (click)="addVideoLink()" class="btn btn-primary">Ajouter un autre lien
+                    vidéo</button>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>
+                    <b>Informations d'écoute</b>
+                </legend>
+                <div class="row">
+                    <div *ngFor="let input of FieldsetInfosLiensEcouteFormInputs" class="col-lg my-2">
+                        <div class="form-group">
+                            <label for="{{ input?.name }}">
+                                <strong>{{ input?.label | translate }}</strong>
+                                <span *ngIf="(input?.required | translate) === true" class="text-danger">*</span>
+                            </label>
+                            <br />
+                            <div *ngIf="input?.type !== 'select' && input?.type !== 'file'">
+                                <input name="{{ input?.name }}" formControlName="{{ input?.name }}"
+                                    [placeholder]="input?.placeholder | translate" type="{{ input?.type }}"
+                                    class="input-control" />
+                            </div>
+                            <div *ngIf="input?.type === 'select'">
+                                <p-dropdown [options]="this[input?.options]" [optionLabel]="input?.optionLabel"
+                                    [filter]="true" [filterBy]="input?.filterBy" formControlName="{{ input?.name }}"
+                                    [optionValue]="input?.optionValue" [placeholder]="input?.placeholder | translate">
+                                </p-dropdown>
+                            </div>
+                            <div *ngIf="input?.type === 'file'">
+                                <div
+                                    class="d-flex align-items-center gap-2 justify-content-center container-button-telecharger py-1">
+                                    <div class="input_file h-70 width-40">
+                                        <label for="file" (click)="uploadFile.click()">
+                                            <img src="assets/images/picture.png" width="50" />
+                                            <span [hidden]="fileName"><b>Spécifiez l'image</b></span>
+                                            <span [hidden]="!fileName"><b>{{ fileName }}</b></span>
+                                        </label>
+                                        <input #uploadFile type="{{ input?.type }}" (change)="onChangeFile($event)"
+                                            accept=".jpg, .pnj, .jpeg" name="{{ input?.name }}" />
+                                    </div>
+
+                                    <div class="width-40">
+                                        <button pButton pRipple label="Voir l'image" icon="pi pi-eye"
+                                            class="p-button-success" (click)="onSeeImage()">
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <div class="text-end mt-3">
+                <ng-container>
+                    <button type="submit" mat-flat-button class="imako ml-2" [disabled]="form.invalid">
+                        <i Class="ri-pencil-line"></i>{{"GeneralStrings.LABEL_EDIT" | translate}}
+                    </button>
+                </ng-container>
+            </div>
+        </div>
+        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ DETAILS FORMS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+        <div *ngIf="view === 'détails'">
+            <p-tabView>
+
+                <p-tabPanel header="Identification" leftIcon="pi pi-list">
+                    <ng-container>
+                        <fieldset>
+                            <legend>
+                                <b>Informations d'identification</b>
+                            </legend>
+                            <div class="row">
+                                <div *ngFor="let input of FieldsetInfosIdentificationFormInputs1" class="col-lg my-2">
+                                    <div class="form-group">
+                                        <label for="{{ input?.name }}">
+                                            <strong>{{ input?.label | translate }}</strong>
+                                            <span *ngIf="(input?.required | translate) === true"
+                                                class="text-danger">*</span>
+                                        </label>
+                                        <br />
+                                        <div
+                                            *ngIf="input?.type !== 'select' && input?.type !== 'file' && input?.type !== 'textarea'">
+                                            <input name="{{ input?.name }}" formControlName="{{ input?.name }}"
+                                                [placeholder]="input?.placeholder | translate" type="{{ input?.type }}"
+                                                class="input-control" />
+                                        </div>
+                                        <div *ngIf="input?.type === 'select'">
+                                            <p-dropdown [options]="this[input?.options]"
+                                                [optionLabel]="input?.optionLabel" [filter]="true"
+                                                [filterBy]="input?.filterBy" formControlName="{{ input?.name }}"
+                                                [optionValue]="input?.optionValue"
+                                                [placeholder]="input?.placeholder | translate">
+                                            </p-dropdown>
+                                        </div>
+                                        <div *ngIf="input?.type === 'file'">
+                                            <div
+                                                class="d-flex no-wrap text-center container-button-telecharger pr-2 rounded">
+                                                <div [style]="{'width': '200px'}">
+                                                    <button pButton pRipple label="Voir l'image" icon="pi pi-eye"
+                                                        class="p-button-success" (click)="onSeeImage()">
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div *ngFor="let input of FieldsetInfosIdentificationFormInputs2"
+                                    class="col-lg-{{input?.column}} my-2">
+                                    <div class="form-group">
+                                        <label for="{{ input?.name }}">
+                                            <strong>{{ input?.label | translate }}</strong>
+                                            <span *ngIf="(input?.required | translate) === true"
+                                                class="text-danger">*</span>
+                                        </label>
+                                        <br />
+                                        <div
+                                            *ngIf="input?.type !== 'select' && input?.type !== 'file' && input?.type !== 'textarea' && input?.type !== 'edit'">
+                                            <input name="{{ input?.name }}" formControlName="{{ input?.name }}"
+                                                [placeholder]="input?.placeholder | translate" type="{{ input?.type }}"
+                                                class="input-control" />
+                                        </div>
+                                        <div *ngIf="input?.type === 'textarea'">
+                                            <textarea name="{{ input?.name }}" [rows]="input?.rows"
+                                                formControlName="{{ input?.name }}"
+                                                [placeholder]="input?.placeholder | translate"
+                                                class="input-control"></textarea>
+                                        </div>
+                                        <div *ngIf="input?.type === 'select'">
+                                            <p-dropdown [options]="this[input?.options]"
+                                                [optionLabel]="input?.optionLabel" [filter]="true"
+                                                [filterBy]="input?.filterBy" formControlName="{{ input?.name }}"
+                                                [optionValue]="input?.optionValue"
+                                                [placeholder]="input?.placeholder | translate">
+                                            </p-dropdown>
+                                        </div>
+                                        <div *ngIf="input?.type === 'file'">
+                                            <div class="width-40">
+                                                <button pButton pRipple label="Voir l'image" icon="pi pi-eye"
+                                                    class="p-button-success" (click)="onSeeImage()">
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div *ngIf="input?.type === 'edit'">
+                                            <p-editor formControlName="{{ input?.name }}" [style]="{ height: '200px' }"
+                                                [placeholder]="input?.placeholder | translate" [readonly]="true" />
+                                            <!-- <p-editor formControlName="{{ input?.name }}" [style]="{ height: '320px' }" /> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </ng-container>
+                </p-tabPanel>
+
+                <p-tabPanel header="Mes Réseaux sociaux" leftIcon="pi pi-globe">
+                    <ng-container>
+                        <fieldset>
+                            <legend>
+                                <b>Informations réseaux sociaux</b>
+                            </legend>
+                            <div class="row">
+                                <div *ngFor="let input of FieldsetInfosReseauxSociauxFormInputs"
+                                    class="col-lg-{{ input?.column }} my-2">
+                                    <div class="form-group">
+                                        <label for="{{ input?.name }}">
+                                            <strong>{{ input?.label | translate }}</strong>
+                                            <span *ngIf="(input?.required | translate) === true"
+                                                class="text-danger">*</span>
+                                        </label>
+                                        <br />
+                                        <div *ngIf="input?.type !== 'select' && input?.type !== 'file'">
+                                            <input name="{{ input?.name }}" formControlName="{{ input?.name }}"
+                                                [placeholder]="input?.placeholder | translate" type="{{ input?.type }}"
+                                                class="input-control" />
+                                        </div>
+                                        <div *ngIf="input?.type === 'select'">
+                                            <p-dropdown [options]="this[input?.options]"
+                                                [optionLabel]="input?.optionLabel" [filter]="true"
+                                                [filterBy]="input?.filterBy" formControlName="{{ input?.name }}"
+                                                [optionValue]="input?.optionValue"
+                                                [placeholder]="input?.placeholder | translate">
+                                            </p-dropdown>
+                                        </div>
+                                        <div *ngIf="input?.type === 'file'">
+                                            <div
+                                                class="d-flex align-items-center gap-2 justify-content-center container-button-telecharger py-1">
+                                                <div class="width-40">
+                                                    <button pButton pRipple label="Voir l'image" icon="pi pi-eye"
+                                                        class="p-button-success" (click)="onSeeImage()">
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </fieldset>
+                    </ng-container>
+                </p-tabPanel>
+
+                <p-tabPanel header="Mes Vidéos" leftIcon="pi pi-video">
+                    <ng-container>
+                        <fieldset>
+                            <legend>
+                                <b>Informations lien de vidéos</b>
+                            </legend>
+                            <div formArrayName="videos_link">
+                                <div *ngFor="let control of videosLink.controls; let i = index" class="row my-2">
+                                    <div class="col-lg-12 my-2">
+                                        <div class="form-group">
+                                            <label for="video-{{ i }}">
+                                                <strong>{{ FieldsetInfosLinksVideosFormInputs[0]?.label | translate }}
+                                                    {{ i + 1
+                                                    }}</strong>
+                                            </label>
+                                            <div class="d-flex gap-2">
+                                                <textarea id="video-{{ i }}" [formControlName]="i" class="input-control"
+                                                    rows="4"
+                                                    [placeholder]="FieldsetInfosLinksVideosFormInputs[0]?.placeholder | translate"></textarea>
+                                                <button type="button" *ngIf="videosLink.length > 1"
+                                                    (click)="removeVideoLink(i)"
+                                                    class="btn btn-danger mt-2">Supprimer</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" (click)="addVideoLink()" class="btn btn-primary">Ajouter un autre lien
+                                vidéo</button>
+                        </fieldset>
+                    </ng-container>
+                </p-tabPanel>
+
+                <p-tabPanel header="Mes liens d'écoute" leftIcon="pi pi-link">
+                    <ng-container>
+                        <fieldset>
+                            <legend>
+                                <b>Informations d'écoute</b>
+                            </legend>
+                            <div class="row">
+                                <div *ngFor="let input of FieldsetInfosLiensEcouteFormInputs" class="col-lg my-2">
+                                    <div class="form-group">
+                                        <label for="{{ input?.name }}">
+                                            <strong>{{ input?.label | translate }}</strong>
+                                            <span *ngIf="(input?.required | translate) === true"
+                                                class="text-danger">*</span>
+                                        </label>
+                                        <br />
+                                        <div *ngIf="input?.type !== 'select' && input?.type !== 'file'">
+                                            <input name="{{ input?.name }}" formControlName="{{ input?.name }}"
+                                                [placeholder]="input?.placeholder | translate" type="{{ input?.type }}"
+                                                class="input-control" />
+                                        </div>
+                                        <div *ngIf="input?.type === 'select'">
+                                            <p-dropdown [options]="this[input?.options]"
+                                                [optionLabel]="input?.optionLabel" [filter]="true"
+                                                [filterBy]="input?.filterBy" formControlName="{{ input?.name }}"
+                                                [optionValue]="input?.optionValue"
+                                                [placeholder]="input?.placeholder | translate">
+                                            </p-dropdown>
+                                        </div>
+                                        <div *ngIf="input?.type === 'file'">
+                                            <div
+                                                class="d-flex align-items-center gap-2 justify-content-center container-button-telecharger py-1">
+                                                <div class="width-40">
+                                                    <button pButton pRipple label="Voir l'image" icon="pi pi-eye"
+                                                        class="p-button-success" (click)="onSeeImage()">
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </fieldset>
+                    </ng-container>
+                </p-tabPanel>
+
+                <p-tabPanel header="Mes liens articles" leftIcon="pi pi-info">
+                    <ng-container>
+
+                    </ng-container>
+                </p-tabPanel>
+
+            </p-tabView>
+        </div>
+    </form>
+
+</div>

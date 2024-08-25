@@ -1,0 +1,118 @@
+<form [formGroup]="filterForm" (ngSubmit)="onSubmitFilterForm()">
+    <div class="row">
+        <div *ngFor="let input of formInputs" class="col-md-{{ input?.column }}">
+            <div class="form-group">
+                <label for="{{ input?.name }}">
+                    <strong>{{ input?.label | translate }}</strong>
+                    <!-- <span *ngIf="input?.required" class="text-danger">*</span> -->
+                </label>
+                <br />
+                <ng-container *ngIf="input?.type !== 'select'; else selectTemplate">
+                    <input name="{{ input?.name }}" formControlName="{{ input?.name }}"
+                        [placeholder]="input?.placeholder | translate" type="{{ input?.type }}" class="input-control" />
+                </ng-container>
+                <ng-template #selectTemplate>
+                    <p-dropdown [options]="this[input?.options]" [optionLabel]="input?.optionLabel" [filter]="true"
+                        [filterBy]="input?.filterBy" formControlName="{{ input?.name }}"
+                        [optionValue]="input?.optionValue" [placeholder]="input?.placeholder | translate">
+                        <ng-template let-data pTemplate="item">
+                            <div class="profile-item">
+                                <div>{{ data.libelle }}</div>
+                            </div>
+                        </ng-template>
+                    </p-dropdown>
+                </ng-template>
+            </div>
+        </div>
+        <div class="col-md-2 d-flex align-items-end">
+            <button mat-flat-button class="gray" type="submit">
+                <i class="ri-filter-fill"></i>
+            </button>
+        </div>
+    </div>
+    
+
+    <!-- <div class="flex flex-wrap -mx-3 mb-2">
+        <div class="w-full md:w-1/6 px-3 mb-6 md:mb-0">
+            <label class="block upp6ercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-code">
+                Code
+            </label>
+            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200
+                rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-code"
+                type="text" placeholder="0001" formControlName="code">
+        </div>
+
+        <div class="w-full md:w-1/6 px-3 mb-6 md:mb-0">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-title">
+                Titre
+            </label>
+            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200
+                rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                id="grid-title" type="text" placeholder="azerty" formControlName="title">
+        </div>
+
+        <div class="w-full md:w-1/6 px-3 mb-6 md:mb-0">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-categories">
+                Categories
+            </label>
+            <div class="relative">
+                <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3
+                    px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    id="grid-categories" formControlName="category_id">
+                    <option [value]="null" selected>Selectionner une categorie</option>
+                    <option *ngFor="let category of listCategories" [value]="category.id">{{ category.label }}
+                    </option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full md:w-1/6 px-3 mb-6 md:mb-0">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-roles">
+                Roles
+            </label>
+            <div class="relative">
+                <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3
+                    px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    id="grid-roles" formControlName="role_slug">
+                    <option [value]="null" selected>Selectionner un role</option>
+                    <option *ngFor="let role of listRoles" [value]="role.slug">{{ role.label }}</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full md:w-1/6 px-3 mb-6 md:mb-0">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-status">
+                Statut
+            </label>
+            <div class="relative">
+                <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3
+                    px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    id="grid-status" formControlName="status">
+                    <option [value]="null" selected>Selectionner un statut</option>
+                    <option *ngFor="let statut of listStatut" [value]="statut.code">{{ statut.libelle }}</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full md:w-1/6 px-3 mb-6 md:mb-0 flex items-end">
+            <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 mr-2 rounded" type="submit">
+                Filtrer
+            </button>
+        </div>
+    </div> -->
+</form>

@@ -23,22 +23,14 @@
                     </button>
                 </div>
                 <div>
-                    <input
-                            type="text"
-                            (input)="onInputChange($event)"
-                            class="input-control"
-                            [placeholder]="'GeneralStrings.PLACEHOLDER_SEARCH' | translate"
-                    />
+                    <input type="text" (input)="onInputChange($event)" class="input-control"
+                        [placeholder]="'GeneralStrings.PLACEHOLDER_SEARCH' | translate" />
                 </div>
             </div>
         </div><br>
         <div class="col-md-6 d-flex justify-content-start align-items-center">
 
-            <button
-                    (click)="showFormFaq('add', null)"
-                    mat-flat-button
-                    class="imako"
-            >
+            <button (click)="showFormFaq('add', null)" mat-flat-button class="imako">
                 <i class="ri-add-fill"></i>
                 {{ "FormFaq.TITLE_MODAL.STORE" | translate }}
             </button>
@@ -46,24 +38,13 @@
     </mat-card-header>
 
     <mat-card-content>
-        <div
-                class="item"
-                *ngIf="listFaq && listFaq?.length > 0; else skeletonLoader"
-        >
+        <div class="item" *ngIf="listFaq && listFaq?.length > 0; else skeletonLoader">
 
             <div class="row mt-3">
-                <p-table
-                    #dt
-                    [value]="listFaq"
-                    [rows]="10"
-                    responsiveLayout="scroll"
-                    [globalFilterFields]="globalFilterFieldsObject"
-                    styleClass="p-datatable-gridlines"
-                    [rowHover]="true"
-                    dataKey="id"
-                    currentPageReportTemplate="Affichage de {first} à {last} des {totalRecords} données"
-                    [showCurrentPageReport]="true"
-                >
+                <p-table #dt [value]="listFaq" [rows]="10" responsiveLayout="scroll"
+                    [globalFilterFields]="globalFilterFieldsObject" styleClass="p-datatable-gridlines" [rowHover]="true"
+                    dataKey="id" currentPageReportTemplate="Affichage de {first} à {last} des {totalRecords} données"
+                    [showCurrentPageReport]="true">
                     <ng-template pTemplate="header">
                         <tr>
                             <th scope="col" class="text-center">#</th>
@@ -86,55 +67,42 @@
                                 </ng-container>
                                 <ng-container *ngIf="col.isBadge">
                                     <td [class.text-center]="col.isCenter">
-                          <span [ngSwitch]="faq.status">
-                            <span *ngSwitchCase="'inactive'" class="badge inactive">
-                              {{ translateStatus(faq.status) }}
-                            </span>
-                            <span *ngSwitchCase="'active'" class="badge active">
-                              {{ translateStatus(faq.status) }}
-                            </span>
-                          </span>
+                                        <span [ngSwitch]="faq.status">
+                                            <span *ngSwitchCase="'inactive'" class="badge inactive">
+                                                {{ translateStatus(faq.status) }}
+                                            </span>
+                                            <span *ngSwitchCase="'active'" class="badge active">
+                                                {{ translateStatus(faq.status) }}
+                                            </span>
+                                        </span>
                                     </td>
                                 </ng-container>
                             </ng-container>
                             <td class="text-center">
-                                <button
-                                        (click)="showFormFaq('edit', faq)"
-                                        pButton
-                                        icon="pi pi-pencil"
-                                        class="p-button-secondary"
-                                ></button>
+                                <button (click)="showFormFaq('edit', faq)" pButton icon="pi pi-pencil"
+                                    class="p-button-secondary"></button>
                                 &nbsp;
-                                <p-button
-                                        (click)="handleUpdateStatus(faq)"
-                                        styleClass="p-button-secondary" [icon]="faq.status === 'active' ? 'pi pi-lock' : 'pi pi-lock-open'">
+                                <p-button (click)="handleUpdateStatus(faq)" styleClass="p-button-secondary"
+                                    [icon]="faq.status === 'active' ? 'pi pi-lock' : 'pi pi-lock-open'">
                                 </p-button>
                                 &nbsp;
-                                <button
-                                        (click)="handleDeleteFaq(faq)"
-                                        pButton
-                                        type="button"
-                                        icon="pi pi-trash"
-                                        class=" p-button-danger ml-2"
-                                ></button>
+                                <button (click)="handleDeleteFaq(faq)" pButton type="button" icon="pi pi-trash"
+                                    class=" p-button-danger ml-2"></button>
                             </td>
                         </tr>
                     </ng-template>
                     <ng-template pTemplate="emptymessage">
                         <tr *ngIf="listFaq?.length <= 0">
                             <td class="text-center" colspan="15">
-                      <span>
-                        {{ "GeneralStrings.NO_DATA" | translate }}
-                      </span>
+                                <span>
+                                    {{ "GeneralStrings.NO_DATA" | translate }}
+                                </span>
                             </td>
                         </tr>
                     </ng-template>
                 </p-table>
-                <app-paggination
-                        [totalRecords]="totalRecords"
-                        [rows]="rows"
-                        (pageChange)="onPageChange($event)"
-                ></app-paggination>
+                <app-paggination [totalRecords]="totalRecords" [rows]="rows"
+                    (pageChange)="onPageChange($event)"></app-paggination>
             </div>
         </div>
         <ng-template #skeletonLoader>
@@ -143,4 +111,3 @@
     </mat-card-content>
 
 </div>
-
