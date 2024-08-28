@@ -42,45 +42,40 @@ export class ArtistsComponent implements OnInit, OnDestroy {
     };
     public columns = [
         {
-            field: "nom",
+            field: "nom_complet",
             header: "FormArtist.COLUMNS.0.header",
             isText: true
         },
         {
-            field: "prenoms",
+            field: "email",
             header: "FormArtist.COLUMNS.1.header",
             isText: true
         },
         {
-            field: "email",
+            field: "telephone",
             header: "FormArtist.COLUMNS.2.header",
             isText: true
         },
         {
-            field: "telephone",
+            field: "categorie",
             header: "FormArtist.COLUMNS.3.header",
             isText: true
         },
         {
-            field: "categorie",
-            header: "FormArtist.COLUMNS.4.header",
-            isText: true
-        },
-        {
             field: "image",
-            header: "FormArtist.COLUMNS.5.header",
+            header: "FormArtist.COLUMNS.4.header",
             isCenter: true,
             isBadge: true,
         },
         {
             field: "created_at",
-            header: "FormArtist.COLUMNS.6.header",
+            header: "FormArtist.COLUMNS.5.header",
             isText: true,
             isCenter: true,
         },
         {
             field: "updated_at",
-            header: "FormArtist.COLUMNS.7.header",
+            header: "FormArtist.COLUMNS.6.header",
             isText: true,
             isCenter: true,
         },
@@ -99,9 +94,7 @@ export class ArtistsComponent implements OnInit, OnDestroy {
     public pargination = null;
     private response: any;
     public spinner: boolean = false;
-    public listArtists: Array<Object> = [
-        {nomComplet: "kouda soumaila", email: "azerty120@gmail.com", telephone: "0125648985", categorie: "", image: "", created_at: "", updated_at: "", videos_link: ["test1", "test2"]}
-    ];
+    public listArtists: Array<Object> = [];
     private subscriptions: Subscription = new Subscription();
     private subscriptionListArtist: Subscription;
     public selectedArtist: Object;
@@ -296,8 +289,8 @@ export class ArtistsComponent implements OnInit, OnDestroy {
     }
 
     public async confirmUpdateStatusArtistMode(data): Promise<void> {
-        // await handleUpdateCaterogyStatusMode(
-        //     () => this.campService.CampaignCategorieStatus(data),
+        // await handleUpdateArtistStatusMode(
+        //     () => this.artistService.changeStatus(data),
         //     this.notyfService,
         // );
         this.getArtistsAll();

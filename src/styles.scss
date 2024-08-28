@@ -53,7 +53,7 @@ $imako-theme: mat.define-light-theme(
 :root {
   --fontFamily: "Open Sans", sans-serif;
   --headingFontFamily: "Open Sans", sans-serif;
-  --heraBlueColor: #21427b;
+  --heraBlueColor: #E74C3C;
   --aareRiverColor: rgba(240, 147, 43, 0.4);
   --blackColor: #260944;
   --paragraphColor: #2d3436;
@@ -64,9 +64,13 @@ $imako-theme: mat.define-light-theme(
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   --borderWhiteBoxShadow: rgba(255, 255, 255, 0.05) 0px 6px 24px 0px,
     rgba(255, 255, 255, 0.08) 0px 0px 0px 1px;
-  // --logo-icon-url: url("assets/img/logo/logo-icon.png");
-  // --logo-white-img-url: url("assets/img/logo/logo_white.png");
-  // --logo-black-img-url: url("assets/img/logo/logo_black.png");
+  --logo-icon-url: url("assets/img/logo/logo-icon-text.png");
+  --logo-white-img-url: url("assets/img/logo/logo-white-text.png");
+  --logo-black-img-url: url("assets/img/logo/logo-black-text.png");
+
+  // --logo-icon-url: url("assets/img/logo/logo_icon.png");
+  // --logo-white-img-url: url("assets/img/logo/logo-white.png");
+  // --logo-black-img-url: url("assets/img/logo/logo-black.png");
 
   // --logo-icon-url: url("assets/img/logo/logo-icon.png");
   // --logo-white-img-url: url("assets/img/logo/logo_white.png");
@@ -191,8 +195,8 @@ input[type="radio" i]:disabled {
 .nav-tabs .nav-item.show .nav-link,
 .nav-tabs .nav-link.active {
   color: #fff !important;
-  background-color: #21427b;
-  border-color: #21427b;
+  background-color: #E74C3C;
+  border-color: #E74C3C;
 }
 
 thead,
@@ -866,8 +870,8 @@ body .ui-table .ui-table-tbody > tr > td {
 }
 
 .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
-  background: #21427b;
-  border-color: #21427b;
+  background: #E74C3C;
+  border-color: #E74C3C;
   color: #fff;
 }
 
@@ -901,7 +905,7 @@ body .ui-table .ui-table-tbody > tr > td {
   position: absolute;
   bottom: 0;
   height: 2px;
-  background-color: #21427b;
+  background-color: #E74C3C;
   transition: 500ms cubic-bezier(0.35, 0, 0.25, 1);
 }
 
@@ -952,8 +956,8 @@ body .ui-table .ui-table-tbody > tr > td {
 }
 
 .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
-  background: #21427b;
-  border-color: #21427b;
+  background: #E74C3C;
+  border-color: #E74C3C;
   color: #fff;
   border-radius: 50%;
 }
@@ -5931,5 +5935,5 @@ quill-editor {
 
 button.p-ripple.p-element.p-button-success.p-button.p-component {
   width: 100%;
-  background: #21427b;
+  background: #E74C3C;
 }

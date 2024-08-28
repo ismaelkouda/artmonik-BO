@@ -29,12 +29,10 @@
       }
     },
     "DASHBOARD": {
-      "libelle_1": "Total des membres ",
-      "libelle_2": "Total des membres payeurs",
-      "libelle_3": "Total des membres non payeurs",
-      "libelle_4": "Total des administrateurs",
-      "libelle_5": "Montant total payé",
-      "libelle_6": "Pourcentage"
+      "libelle_1": "# Artistes enregistrés",
+      "libelle_3": "# Artistes actifs",
+      "libelle_2": "# Artistes suspendu",
+      "libelle_4": "# Evénements"
     }
   },
   "MessageToast": {
@@ -133,8 +131,8 @@
     "BODY_TITLE_HISTORIQUE": "Historique des Utilisateurs",
     "userList": "Liste des utilisateurs",
     "TITLE_MODAL": {
-      "STORE": "Ajouter un Utilisateurs",
-      "UPDATE": "Modification infos"
+      "STORE": "Ajouter un Utilisateur",
+      "UPDATE": "Modification de l'utilisateur {libelle}"
     },
     "NOM": {
       "LIBELLE": "Nom",
@@ -178,13 +176,13 @@
     },
     "UPDATE_CONFIRMATION_STATUS": {
       "title": "En êtes vous sûr ?",
-      "message": "Vous allez <u><strong>{{status}}</strong></u> le compte de l'utilisateur <u><strong>{{name}}</strong></u>",
+      "message": "Vous allez modifier le statut du compte de l'utilisateur <u><strong>{{title}}</strong></u>",
       "cancelButton": "Non",
       "confirmButton": "Oui"
     },
     "DELETE_CONFIRMATION": {
       "title": "En êtes vous sûr ?",
-      "message": "Vous allez supprimer l'utilisateur <u><strong>{{name}}</strong></u>",
+      "message": "Vous allez supprimer l'utilisateur <u><strong>{{title}}</strong></u>",
       "cancelButton": "Non",
       "confirmButton": "Oui"
     },
@@ -201,8 +199,7 @@
       "SECOND": "Artiste"
     },
     "COLUMNS" : [
-      {"header": "Nom"},
-      {"header": "Prénoms"},
+      {"header": "Nom complet"},
       {"header": "Email"},
       {"header": "Téléphone"},
       {"header": "Catégorie"},

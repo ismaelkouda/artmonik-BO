@@ -75,9 +75,7 @@ export class AproposComponent implements OnInit {
     "updated_at",
   ];
 
-  public listApropos: Array<Object> = [
-    {title: "kouda", subTitle: "azerty120@gmail.com", description: "soumaila", created_at: "", updated_at: ""}
-];
+  public listApropos: Array<Object> = [];
   public spinner: boolean = false;
   private subscriptions: Subscription = new Subscription();
   

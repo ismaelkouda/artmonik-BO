@@ -82,9 +82,7 @@ export class SlidesComponent implements OnInit {
     "updated_at",
   ];
 
-  public listSlides: Array<Object> = [
-    {title: "kouda", description: "soumaila", page_link: "azerty120@gmail.com", image: "", created_at: "", updated_at: ""}
-];
+  public listSlides: Array<Object> = [];
   public spinner: boolean = false;
   private subscriptions: Subscription = new Subscription();
   

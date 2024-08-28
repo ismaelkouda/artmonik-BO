@@ -167,7 +167,7 @@ export class UsersComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   public async handleDeleteUser(data): Promise<void> {
-    const swalOptions = this.getSwalDeleteOptions(`${data.name}`);
+    const swalOptions = this.getSwalDeleteOptions(`${data.nom} ${data.prenoms}`);
     const result = await Swal.fire(swalOptions);
 
     if (result.isConfirmed) {
@@ -176,7 +176,7 @@ export class UsersComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   public async handleUpdateStatus(data): Promise<void> {
-    const swalOptions = this.getSwalUpdateStatusOptions(`${data.name}`);
+    const swalOptions = this.getSwalUpdateStatusOptions(`${data.title}`);
     const result = await Swal.fire(swalOptions);
     if (result.isConfirmed) {
       const enable = data.status !== 'active'; 
@@ -194,7 +194,7 @@ export class UsersComponent implements OnInit, OnDestroy, AfterViewInit {
     this.loadAllUsers();
   }
 
-  public getSwalUpdateStatusOptions(name: string): SweetAlertOptions {
+  public getSwalUpdateStatusOptions(title: string): SweetAlertOptions {
     return {
       title: this.translate.instant(
         "FormUser.UPDATE_CONFIRMATION_STATUS.title",
@@ -202,8 +202,7 @@ export class UsersComponent implements OnInit, OnDestroy, AfterViewInit {
       html: this.translate.instant(
         "FormUser.UPDATE_CONFIRMATION_STATUS.message",
         {
-          name: name,
-          status: 'enable'
+          title: title,
         },
       ),
       icon: "warning",
@@ -218,12 +217,12 @@ export class UsersComponent implements OnInit, OnDestroy, AfterViewInit {
       ),
     };
   }
-  public getSwalDeleteOptions(name: string): SweetAlertOptions {
+  public getSwalDeleteOptions(title: string): SweetAlertOptions {
     return {
       title: this.translate.instant("FormUser.DELETE_CONFIRMATION.title"),
-      html: this.translate.instant("FormUser.DELETE_CONFIRMATION.message", {
-        name: name,
-      }),
+            html: this.translate.instant("FormUser.DELETE_CONFIRMATION.message", {
+                title: title,
+            }),
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#569C5B",

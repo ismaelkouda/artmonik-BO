@@ -88,9 +88,7 @@ export class ChampsActionComponent implements OnInit {
     "updated_at",
   ];
 
-  public listChampsAction: Array<Object> = [
-    { title: "kouda", sub_title: "azerty120@gmail.com", description: "soumaila", created_at: "", updated_at: "" }
-  ];
+  public listChampsAction: Array<Object> = [];
   public spinner: boolean = false;
   private subscriptions: Subscription = new Subscription();
 

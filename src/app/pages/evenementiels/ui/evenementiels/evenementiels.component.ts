@@ -86,9 +86,7 @@ export class EvenementielsComponent implements OnInit, OnDestroy {
     public pargination = null;
     private response: any;
     public spinner: boolean = false;
-    public listEvenementiels: Array<Object> = [
-        {title: "kouda soumaila", tags: "azerty120@gmail.com", publie_le: "0125648985", publie_par: "", updated_at: ""}
-    ];
+    public listEvenementiels: Array<Object> = [];
     private subscriptions: Subscription = new Subscription();
     private subscriptionListEvenementiels: Subscription;
     public selectedEvenementiel: Object;
